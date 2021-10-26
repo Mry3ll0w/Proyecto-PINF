@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def si(request):
-    return HttpResponse('tu vieja')
+    return render(request,'si.html',{'name':'tu madre L0L'})
