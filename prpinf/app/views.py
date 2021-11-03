@@ -9,7 +9,7 @@ def home(request):
     return render(request, 'home.html')
 
 def foro(request):
-    return render(request, 'foro')
+    return render(request, 'foro.html')
 
 def index(request):
-    return render(request, 'index')
+    return render(request, 'index.html')
