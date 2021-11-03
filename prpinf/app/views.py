@@ -13,3 +13,12 @@ def foro(request):
 
 def index(request):
     return render(request, 'index.html')
+
+def perfil(request):
+    return render(request, 'perfil.html')
+
+def registro(request):
+    return render(request, 'registro.html')
+
+def test(request):
+    return render(request, 'test.html')
