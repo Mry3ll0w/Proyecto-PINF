@@ -1,7 +1,22 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import UserForm
+
 # Create your views here.
+
+
+def post_prueba(request):
+    form = UserForm()
+    if request.method == 'POST':
+        print(request.POST) 
+        #user_input = {'form':form}
+    return render(request, 'prueba_post.html', user_input)
+
+
+
+
 def si(request):
     return render(request,'si.html',{'name':'tu madre L0L'})
 
@@ -18,9 +33,8 @@ def perfil(request):
     return render(request, 'perfil.html')
 
 def registro(request):
-    username = request.GET.get('username')
-    print (username)
-    return render(request, 'registro.html')#sale la pagina
+    return render(request, 'registro.html')
 
 def test(request):
     return render(request, 'test.html')
+
