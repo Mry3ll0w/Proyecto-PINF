@@ -18,7 +18,9 @@ def perfil(request):
     return render(request, 'perfil.html')
 
 def registro(request):
-    return render(request, 'registro.html')
+    username = request.GET.get('username')
+    print (username)
+    return render(request, 'registro.html')#sale la pagina
 
 def test(request):
     return render(request, 'test.html')
