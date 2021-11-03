@@ -12,7 +12,8 @@ def post_prueba(request):
     if request.method == 'POST':
         print(request.POST) 
         #user_input = {'form':form}
-    return render(request, 'prueba_post.html', user_input)
+    context = {'form':form}
+    return render(request, 'prueba_post.html',context)
 
 
 
