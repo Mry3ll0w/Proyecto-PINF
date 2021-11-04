@@ -11,15 +11,12 @@ def post_prueba(request):
     form = UserForm()
     if request.method == 'POST':
         print(request.POST) 
-        #user_input = {'form':form}
     context = {'form':form}
     return render(request, 'prueba_post.html',context)
 
 
 
 
-def si(request):
-    return render(request,'si.html',{'name':'tu madre L0L'})
 
 def home(request):
     return render(request, 'home.html')
