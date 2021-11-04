@@ -5,6 +5,14 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
+.container {
+  max-width: 700px;
+}
+
+.pricing-header {
+  max-width: 500px;
+}
+
 header{
   height: 10vh;
   width: 100%;
@@ -81,4 +89,18 @@ left: 75%;
 }
 input[type=radio]{
   display: none;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }

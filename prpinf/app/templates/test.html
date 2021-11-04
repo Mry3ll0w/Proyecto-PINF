@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-   <!----<title> Animated Image Gallery | CodingLab </title>------->
-    <link rel="stylesheet" href="static/style.css">
-     </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/pricing/">
+  <link href="static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/style.css" rel="stylesheet">
+</head>
+
 <header>
   <div class="container">
     <input type="radio" name="s" id="home">
@@ -29,7 +30,7 @@
 
       <label class="foro" for="foro">
       <a href="foro.html">
-      <i class="fas fa-code"></i>Foro
+      <i class="fas fa-foro"></i>Foro
       </a>
       </label>
     
@@ -44,8 +45,58 @@
 </header>
 
 <body>
-  <h1>
-    TEST
-  </h1>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check" viewBox="0 0 16 16">
+      <title>Check</title>
+      <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </symbol>
+  </svg>
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">TEST'S</h1>
+    <br>
+    <p class="fs-5 text-muted">A continuacion, tendrás a tu disposición los diferentes test que puedes realizar:</p>
+  </div>
+    
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">PRIMER TEST</h4>
+          </div>
+          <div class="card-body">
+            <p>Preguntas de caracter personal</p>
+            <br>
+            <p>Tómate tu tiempo</p>
+            <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">SEGUNDO TEST</h4>
+          </div>
+          <div class="card-body">
+            <p>Preguntas de caracter personal</p>
+            <br>
+            <p>Tómate tu tiempo</p>
+            <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">SATISFACCIÓN</h4>
+          </div>
+          <div class="card-body">
+            <p>¿Qué te ha parecido nuestro servicio?</p>
+            <br>
+            <p>Toda opinion es bienvenida</p>
+            <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
