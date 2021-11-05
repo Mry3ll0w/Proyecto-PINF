@@ -11,9 +11,13 @@ def post_prueba(request):
     form = UserForm()
     if request.method == 'POST':
         data = request.POST    
-    context = {'form':form}
     
-    print(data['password'])
+    context = {'form':form}
+    print ("Se ha recibido: ",data['first_name'],"  ",data['password'])
+    
+    #insercion en la base de la buena data
+    cursor = connections['default'].cursor()
+    #cursor.execute("INSERT INTO app_user(first_name,password) VALUES( %s , %s , %s)", [data['first_name'], data['password'],False])  
     
 
     return render(request, 'prueba_post.html',context)
