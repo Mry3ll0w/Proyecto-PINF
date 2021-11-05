@@ -55,9 +55,7 @@ nav label{
   cursor: pointer;
   transition: all 0.3s ease;
 }
-nav label:hover{
-background: #CDF2CA;
-}
+
 nav label i{
   margin-right: 4px;
 }
@@ -107,11 +105,12 @@ input[type=radio]{
 
 .principal{
   display: block;
-  margin: 10px;
+  
 }
 .arriba{
   height: 600px;
   display: flex;
+  
 }
 .arriba_izq{
   height: 600px;
@@ -127,16 +126,17 @@ input[type=radio]{
 
 .abajo{
   margin-top: 5px;
-  height: 80px;
-  
+  height: 80px; 
+ 
 }
 .letra_pequeña{
-  color: gray;
-  font-size: small;
   text-align: center;
+  font-size: 12px;
+  text-shadow: 1px 1px;
 }
 .texto_abajo{
-  
+
+  background-color:#CDF2CA ;
 }
 
 .titulo{
