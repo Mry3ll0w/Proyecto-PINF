@@ -13,7 +13,7 @@ def post_prueba(request):
         data = request.POST    
     
     context = {'form':form}
-    print ("Se ha recibido: ",data['first_name'],"  ",data['password'])
+    #print ("Se ha recibido: ",data['first_name'],"  ",data['password'])
     
     #insercion en la base de la buena data
     cursor = connections['default'].cursor()
