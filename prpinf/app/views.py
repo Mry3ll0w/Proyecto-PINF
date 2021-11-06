@@ -16,13 +16,13 @@ def post_prueba(request):
     querys = User.objects.all()
     token = False
     for i in querys:
-        if i.mail == request.POST.get('mail',''):
+        if i.mail == request.POST.get('mail','') and i.password == request.POST.get('password',''):
             token = True
 
-    if token == False: #creamos el user y tal
-        insertion = User(mail = request.POST.get('mail',''),nickname='' ,password = request.POST.get('password',''),t1_punct=0,t2_punct=0,done_test=False)
-        insertion.save()
-
+    if token == True: #creamos el user y tal
+        print('································user y pass correcta ···········································333')
+    else:
+        print('·······················User o contraseña incorrecta····························')
     return render(request, 'prueba_post.html',context)
 
 def login(request):
@@ -33,11 +33,11 @@ def login(request):
     querys = User.objects.all()
     token = False
     for i in querys:
-        if i.mail == request.POST.get('mail',''):
+        if i.mail == request.POST.get('mail','') and i.password == request.POST.get('password',''):
             token = True
 
     if token == True: #creamos el user y tal
-        print('user encontrado')#rellenar con return de datos a html
+        print('user y pass correcta')#rellenar con return de datos a html
     return render(request, 'login.html',context)
 
 

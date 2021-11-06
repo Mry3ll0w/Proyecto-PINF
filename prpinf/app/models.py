@@ -15,3 +15,8 @@ class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
     author  = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=1440) #280 * 5 (tamaño Twitter * 5)
+
+class Cuestionario(models.Model):
+    id_cuestionario = models.AutoField(primary_key=True)
+    contenido = models.CharField(max_length = 2000)#definir un maximo a posteriori
+    punctuation = models.IntegerField(default=0) #definir maximo valor a 50
