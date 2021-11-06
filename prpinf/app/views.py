@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import User
 from .forms import UserForm
 from django.db import connections
 
@@ -11,13 +11,14 @@ def post_prueba(request):
     form = UserForm()
     if request.method == 'POST':
         data = request.POST    
-    
+        
     context = {'form':form}
-    #print ("Se ha recibido: ",data['first_name'],"  ",data['password'])
-    
+    print(data['mail'],"  ",data['password'])
     #insercion en la base de la buena data
-    cursor = connections['default'].cursor()
-    #cursor.execute("INSERT INTO app_user(first_name,password) VALUES( %s , %s , %s)", [data['first_name'], data['password'],False])  
+    
+    User.objects.create(mail= data['mail'],password=data['password'])
+
+
     
 
     return render(request, 'prueba_post.html',context)
