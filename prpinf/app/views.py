@@ -10,10 +10,10 @@ from django.db import connections
 def post_prueba(request):
     form = UserForm()
     if request.method == 'POST':
-        data = request.POST    
-        
+        print(request.POST)        
     context = {'form':form}
-    print(data['mail'],"  ",data['password'])
+    data = request.POST
+    print(data)
     #insercion en la base de la buena data
     
     User.objects.create(mail= data['mail'],password=data['password'])
