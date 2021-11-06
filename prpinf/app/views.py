@@ -15,7 +15,7 @@ def post_prueba(request):
     #print(request.POST.get('mail',''))
     #insercion en la base de la buena data
     insertion = User(mail = request.POST.get('mail',''),nickname='' ,password = request.POST.get('password',''),t1_punct=0,t2_punct=0,done_test=False)
-    
+    insertion.save()
     
 
 
