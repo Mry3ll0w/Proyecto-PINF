@@ -26,6 +26,7 @@ def post_prueba(request):
     return render(request, 'prueba_post.html',context)
 
 def login(request):
+    
     form = UserForm()
     #if request.method == 'POST':
         #print(request.POST)        
@@ -33,11 +34,12 @@ def login(request):
     querys = User.objects.all()
     token = False
     for i in querys:
-        if i.mail == request.POST.get('mail','') and i.password == request.POST.get('password',''):
+        if i.mail == request.POST.get('mail','') and i.nickname == request.POST.get('nickname',' '):
             token = True
 
-    if token == True: #creamos el user y tal
-        print('user y pass correcta')#rellenar con return de datos a html
+    if token == False: #creamos el user y tal
+        insertion = User(mail = request.POST.get('mail',''),nickname='' ,password = request.POST.get('password',''),t1_punct=0,t2_punct=0,done_test=False)
+        insertion.save()
     return render(request, 'login.html',context)
 
 
@@ -49,7 +51,7 @@ def registro(request):#codigo sin su html y tal
     querys = User.objects.all()
     token = False
     for i in querys:
-        if i.mail == request.POST.get('mail',''):
+        if i.mail == request.POST.get('mail','') and i.nickname == request.POST.get('nickname',' '):
             token = True
 
     if token == False: #creamos el user y tal
