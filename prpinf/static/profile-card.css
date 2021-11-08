@@ -18,7 +18,7 @@ body{
   position: relative;
   height: 220px;
   background-size: cover;
-  background-position: top;
+  background-position: 10px;
 }
 .card-header:after{
   content:'';
@@ -141,11 +141,11 @@ svg .polygon{
 
   left: 0;
   width: 100%;
-  bottom: 20px;
+  bottom: 50px;
 }
 .stat{
   box-sizing: border-box;
-  width: calc(100% / 3);
+  width: calc(100% / 2);
   float: left;
   text-align: center;
   border-left: 1px solid #EBEBEB;
