@@ -3,7 +3,7 @@ from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import User
-from .forms import UserForm
+from .forms import UserForm, UserFormLogin
 from django.db import connections
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -59,9 +59,24 @@ def post_prueba(request):
         context = {'form':form}
         return render(request, 'prueba_post.html', context) 
 
-def login_prueba(request):
+def login_prueba(request):#CUIDADO, NO FUNCIONA BIEN
+    form = UserFormLogin(request.POST)
 
-    form = UserForm();
+    if request.method == 'POST':
+        context = {'form':form}
+
+        nickname = form.cleaned_data.get('nickname')
+        password = form.cleaned_data.get('password')
+
+        user = authenticate(request, nickname=nickname, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('http://127.0.0.1:8000/app/home/')
+        else:
+            messages.info(request, 'CAGASTE')
+
+
 
 
     context = {'form':form}
