@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 #Las clases deberan tener la primera letra en mayusculas para poder distinguir en caso de usar variables 
 class User(models.Model):
-    mail = models.CharField(max_length= 30,default="")
     nickname = models.CharField(max_length=12,primary_key = True)
+    mail = models.CharField(max_length= 30,default="")
     password = models.CharField(max_length= 12)
     t1_punct = models.IntegerField(default=0)
     t2_punct = models.IntegerField(default=0)

@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from .models import User
 from .forms import UserForm
 from django.db import connections
-from django.contrib.auth.models import User
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
@@ -48,7 +47,9 @@ def post_prueba(request):
                 nickname = form.cleaned_data.get('nickname')
                 password = form.cleaned_data.get('password')
                 print(mail, nickname, password) #FUNCIONA ME CAGO EN DIOS
-                new_user = User()
+                new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
+                new_user.save()
+
                 #new_user = User.objects.create(mail=mail, nickname=nickname, password=password, t1_punct=0, t2_punct=0, done_test=False)
                 
                 messages.success(request, 'Se ha creado la cuenta')
