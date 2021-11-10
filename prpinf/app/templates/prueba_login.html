@@ -1,0 +1,14 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'headers.css' %}">
+<h3 >Customer Form</h3>
+<h1>
+<img src="{% static 'kenji.jpg' %}" alt="My image"></h1>
+<hr>
+<h2>PRUEBA DEL LOGIN ROLDAN NO TOQUES NADA</h2>
+<form action="" method="post">{% csrf_token %}
+    
+    {{form}}
+    <input type="submit">
+
+</form>

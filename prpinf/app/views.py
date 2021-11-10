@@ -34,6 +34,10 @@ def post_prueba(request):
         print('·······················User o contraseña incorrecta····························')
     return render(request, 'prueba_post.html',context)
 '''
+#-------------------------ESTE REGISTROFUNCIONA DE LOCOS--------------------
+#COSAS A TENER EN CUENTA:
+#django comprueba de forma automatica al guardar en la base de datos si ya existe un user con ese nickname
+
 def post_prueba(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -41,24 +45,28 @@ def post_prueba(request):
         form = UserForm()
         if request.method == 'POST':
             form = UserForm(request.POST)
+            context = {'form':form}
             if form.is_valid():
                 #form.save()
                 mail = form.cleaned_data.get('mail')
                 nickname = form.cleaned_data.get('nickname')
                 password = form.cleaned_data.get('password')
-                print(mail, nickname, password) #FUNCIONA ME CAGO EN DIOS
                 new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
                 new_user.save()
-
-                #new_user = User.objects.create(mail=mail, nickname=nickname, password=password, t1_punct=0, t2_punct=0, done_test=False)
-                
                 messages.success(request, 'Se ha creado la cuenta')
-
+                return redirect('http://127.0.0.1:8000/app/prueba_login/')
 
         context = {'form':form}
         return render(request, 'prueba_post.html', context) 
 
-    
+def login_prueba(request):
+
+    form = UserForm();
+
+
+    context = {'form':form}
+    return render(request, 'prueba_login.html', context) 
+
 
 def login(request):
     
