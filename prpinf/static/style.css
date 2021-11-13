@@ -109,23 +109,20 @@ input[type=radio]{
 }
 .arriba{
   height: 600px;
-  display: flex;
-  
+  display: flex;  
 }
 .arriba_izq{
   height: 600px;
-  width: 80%;  
+  width: 80%; 
 }
 
 }
 .arriba_der{
   width: 20%;
   height: 600px;
- 
 }
 
 .abajo{
-  margin-top: 5px;
   height: 80px; 
  
 }
@@ -144,6 +141,11 @@ input[type=radio]{
 }
 
 .texto_arriba{
-  text-align: center;
-  
+  text-align: left;
+  margin-left: 20px; 
+  margin-right: 20px; 
+}
+.separador{
+  background-color: black;
+  font-size: 2px;
 }
