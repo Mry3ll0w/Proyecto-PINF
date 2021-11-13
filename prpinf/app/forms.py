@@ -10,6 +10,7 @@ class UserForm(ModelForm):
 #Creamos un form que sea solo para crear un usuario
 
 class UserFormLogin(ModelForm):
+    #Clase unica
     class Meta:
         model = User
         fields =['nickname','password'] 
