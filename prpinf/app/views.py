@@ -37,27 +37,8 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-'''
-def post_prueba(request):
-    form = UserForm()
-    #if request.method == 'POST':
-        #print(request.POST)        
-    context = {'form':form}
-    querys = User.objects.all()
-    token = False
-    for i in querys:
-        if i.mail == request.POST.get('mail','') and i.password == request.POST.get('password',''):
-            token = True
 
-    if token == True: #creamos el user y tal
-        print('································user y pass correcta ···········································333')
-    else:
-        print('·······················User o contraseña incorrecta····························')
-    return render(request, 'prueba_post.html',context)
-'''
-#-------------------------ESTE REGISTROFUNCIONA DE LOCOS--------------------
-#COSAS A TENER EN CUENTA:
-#django comprueba de forma automatica al guardar en la base de datos si ya existe un user con ese nickname
+#-----------------------------------------------------REGISTRO--------------------------------------------------------------------------------------
 
 def post_prueba(request):
 
@@ -73,6 +54,10 @@ def post_prueba(request):
 
             form = UserForm(request.POST)
             context = {'form':form}
+
+            #Siempre que trabajemos con un formulario, tenemos que comprobar que sea valido, esto se hace con la instruccion form.is_vail()
+
+            #Con esto nos aseguramos de que la primera vez que se acceda a la url no busque un formulario lleno
 
             if form.is_valid():
 
@@ -91,9 +76,9 @@ def post_prueba(request):
         context = {'form':form}
         return render(request, 'prueba_post.html', context) 
 
-def login_prueba(request):
+#------------------------------------------------------LOGIN---------------------------------------------------------------------------------------
 
-    #Algo pasa que no soy capaz de redireccionar si el user ya esta logeado
+def login_prueba(request):
 
     if request.user.is_authenticated:
 
@@ -134,64 +119,11 @@ def login_prueba(request):
 
             else:
                 return redirect('http://127.0.0.1:8000/prueba_login/')
-            
-
-
-            '''
-            user = authenticate(request, username=post_nickname, password=post_password)
-
-            #ERROR 1 Por alguna razon no entra al bucle siguiente cuando deebria hacerlo
-
-            if user is not None:
-
-                login(request, user)
-
-                return redirect('http://127.0.0.1:8000/app/home/')
-
-            else:
-
-                return redirect('http://127.0.0.1:8000/app/prueba_login/')
-                '''
 
     context = {'form':form}
     return render(request, 'prueba_login.html', context) 
 
-
-def login(request):
-    
-    form = UserForm()
-    #if request.method == 'POST':
-        #print(request.POST)        
-    context = {'form':form}
-    querys = User.objects.all()
-    token = False
-    for i in querys:
-        if i.mail == request.POST.get('mail','') and i.nickname == request.POST.get('nickname',' '):
-            token = True
-
-    if token == False: #creamos el user y tal
-        insertion = User(mail = request.POST.get('mail',''),nickname='' ,password = request.POST.get('password',''),t1_punct=0,t2_punct=0,done_test=False)
-        insertion.save()
-    return render(request, 'login.html',context)
-
-
-def registro(request):#codigo sin su html y tal
-    form = UserForm()
-    #if request.method == 'POST':
-        #print(request.POST)        
-    context = {'form':form}
-    querys = User.objects.all()
-    token = False
-    for i in querys:
-        if i.mail == request.POST.get('mail','') and i.nickname == request.POST.get('nickname',' '):
-            token = True
-
-    if token == False: #creamos el user y tal
-        insertion = User(mail = request.POST.get('mail',''),nickname='' ,password = request.POST.get('password',''),t1_punct=0,t2_punct=0,done_test=False)
-        insertion.save()
-
-    return render(request, 'registro.html',context)
-
+#-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 
 def home(request):
     return render(request, 'home.html')
