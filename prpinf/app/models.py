@@ -20,3 +20,9 @@ class Cuestionario(models.Model):
     id_cuestionario = models.AutoField(primary_key=True)
     contenido = models.CharField(max_length = 2000)#definir un maximo a posteriori
     punctuation = models.IntegerField(default=0) #definir maximo valor a 50
+
+class Pregunta_Cuestionario(models.Model):
+    id_pregunta = models.IntegerField(primary_key=True)
+    id_cuestionario = models.IntegerField(default=0)
+    invertida = models.IntegerField(default=0) #Esta variable la usaremos para saber si la puntuacion del cuestionario esta invertida
+    respuesta = models.IntegerField(default=0)
