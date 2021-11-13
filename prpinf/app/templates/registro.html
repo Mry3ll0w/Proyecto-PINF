@@ -45,23 +45,27 @@
     <h1 class="h3 mb-3 fw-normal">REGISTRO</h1>
 
     <div class="form-floating">
-      <form action="" method="post">{% csrf_token %}
-        <label for="floatingInput">Correo Electrónico</label>
-        <br>
-        <input type="email" class="form-control" id="floatingInput" placeholder="nombre@email.com">
-     
-        <input type="submit">
-    
-    </form>
+      
+      <label for="floatingInput">Correo Electrónico</label>
       <br>
-    </div>
-    <div class="form-floating">
       <form action="" method="post">{% csrf_token %}
-        <label for="floatingPassword">Contraseña</label>
-        <br>
-        
-     <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+        <input type="email" class="form-control" id="floatingInput" placeholder="nombre@email.com">
+        {{form}}
         <input type="submit">
+      </form>
+  
+  </form>
+    <label for="floatingInput">Correo Electrónico</label>
+    <br>
+    <br>
+  </div>
+  <div class="form-floating">
+    <label for="floatingPassword">Contraseña</label>
+    <br>
+    <form action="" method="post">{% csrf_token %}
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+      {{form}}
+      <input type="submit">
     </form>
       
     </div>
