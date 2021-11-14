@@ -1,5 +1,5 @@
 
-from .models import User
+from .models import User,Poll
 from django.forms import ModelForm, fields
 from django import forms
 
@@ -22,3 +22,7 @@ class LoginForm(forms.Form):
 
     fields = ['nickname','password']
 
+class CreatePollForm(ModelForm):
+    class Meta:
+        model = Poll
+        fields = ['value']

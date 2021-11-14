@@ -8,13 +8,13 @@
 #    |_|  \_\______\_____|______/_/    \_\_____/  |_____/|______| |______/_/    \_\ |____/ \____/|______|_| \_/_/    \_\ |_|    |_|  \_\\____/ \_____|_|  \_\/_/    \_\_|  |_/_/    \_\_____|_____\____/|_| \_|
 #
 #
-#                                                                     1.-Si usas un comando nuevo, comentalo y explica que hace.
-#                                                                     2.-Espacia bien entre lineas de codigo que hagan diferentes cosas, esto nos resultara en un codigo mas limpio.
-#                                                                     3.-Ten claros los bucles que creas, donde empiezan y donde acaban.
-#                                                                     4.-Nos fijamos SIEMPRE en la documentacion oficial.
-#                                                                     5.-Si, y solo si, no entiendes el error lo buscas en stack overflow, teniendo siempre en cuenta la regla numero 1.
-#                                                                     6.-No reinventes la rueda, Django hace casi todo por ti, informate que seguro que lo que quieres hacer, django lo hace ya.
-#                                                                     7.-Si algo da error o no hace lo que quieres lo pones en un comentario para los demas programadores.
+#                    1.-Si usas un comando nuevo, comentalo y explica que hace.
+#                    2.-Espacia bien entre lineas de codigo que hagan diferentes cosas, esto nos resultara en un codigo mas limpio.
+#                    3.-Ten claros los bucles que creas, donde empiezan y donde acaban.
+#                    4.-Nos fijamos SIEMPRE en la documentacion oficial.
+#                    5.-Si, y solo si, no entiendes el error lo buscas en stack overflow, teniendo siempre en cuenta la regla numero 1.
+#                    6.-No reinventes la rueda, Django hace casi todo por ti, informate que seguro que lo que quieres hacer, django lo hace ya.
+#                    7.-Si algo da error o no hace lo que quieres lo pones en un comentario para los demas programadores.
 
 
 
@@ -24,7 +24,7 @@ from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import User
-from .forms import UserFormRegistro, UserFormLogin, LoginForm
+from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm
 from django.db import connections
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -122,6 +122,22 @@ def login_prueba(request):
 
     context = {'form':form}
     return render(request, 'prueba_login.html', context) 
+
+# --------------------------------------------------- PRUEBA_POLL -------------------------------------------------------------------------- #
+def prueba_poll(request):
+    if request.method == 'POST':
+
+        selected_option = request.POST['poll']
+        if selected_option == 'option1':
+            print (selected_option)
+        elif selected_option == 'option2':
+            print (selected_option)
+        elif selected_option == 'option3':
+            print (selected_option)
+        else:
+            return HttpResponse(400, 'Invalid form')
+
+    return render(request, 'prueba_poll.html')
 
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 

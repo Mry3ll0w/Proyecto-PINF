@@ -26,3 +26,6 @@ class Pregunta_Cuestionario(models.Model):
     id_cuestionario = models.IntegerField(default=0)
     invertida = models.IntegerField(default=0) #Esta variable la usaremos para saber si la puntuacion del cuestionario esta invertida
     respuesta = models.IntegerField(default=0)
+
+class Poll(models.Model):
+    value = models.CharField(max_length=20)
