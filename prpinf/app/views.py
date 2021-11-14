@@ -124,20 +124,26 @@ def login_prueba(request):
     return render(request, 'prueba_login.html', context) 
 
 # --------------------------------------------------- PRUEBA_POLL -------------------------------------------------------------------------- #
-def prueba_poll(request):
-    if request.method == 'POST':
+def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO ES EL DEFINITIVO)
+    if request.method == 'POST': #Comprobamos si el metodo es correcto
 
-        selected_option = request.POST['poll']
-        if selected_option == 'option1':
-            print (selected_option)
-        elif selected_option == 'option2':
-            print (selected_option)
-        elif selected_option == 'option3':
-            print (selected_option)
-        elif selected_option == 'option4': 
-            print (selected_option)
+        input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
+        
+        #Comprobamos que lo recibido sea X y trabajamos con el , en este caso solo printeamos
+        if input_data == 'option1':
+            print (input_data)
+
+        elif input_data == 'option2':
+            print (input_data)
+
+        elif input_data == 'option3':
+            print (input_data)
+
+        elif input_data == 'option4': 
+            print (input_data)
+
         else:
-            return HttpResponse(400, 'Invalid form')
+            return HttpResponse(400, 'Invalid form') # En caso de no contener un JSON correcto obtendremos un 400 
 
     return render(request, 'prueba_poll.html')
 
@@ -154,7 +160,6 @@ def index(request):
 
 def perfil(request):
     return render(request, 'perfil.html')
-
 
 def test(request):
     return render(request, 'test.html')
