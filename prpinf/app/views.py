@@ -134,6 +134,8 @@ def prueba_poll(request):
             print (selected_option)
         elif selected_option == 'option3':
             print (selected_option)
+        elif selected_option == 'option4': 
+            print (selected_option)
         else:
             return HttpResponse(400, 'Invalid form')
 
