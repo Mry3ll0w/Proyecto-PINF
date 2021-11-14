@@ -108,22 +108,22 @@ input[type=radio]{
   
 }
 .arriba{
-  height: 600px;
+  height: 560px;
   display: flex;  
 }
 .arriba_izq{
-  height: 600px;
+  height: 560px;
   width: 80%; 
 }
 
 }
 .arriba_der{
   width: 20%;
-  height: 600px;
+  height: 560px;
 }
 
 .abajo{
-  height: 80px; 
+  height: 120px; 
  
 }
 .letra_pequeña{
@@ -132,7 +132,9 @@ input[type=radio]{
   text-shadow: 1px 1px;
 }
 .texto_abajo{
-
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   background-color:#CDF2CA ;
 }
 
