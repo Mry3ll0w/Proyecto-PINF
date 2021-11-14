@@ -108,18 +108,18 @@ input[type=radio]{
   
 }
 .arriba{
-  height: 560px;
-  display: flex;  
+  height: 350px;
+  display: flex;
+  text-align: center;  
 }
 .arriba_izq{
-  height: 560px;
-  width: 80%; 
+  height: 350px;
+  text-align: center; 
 }
 
 }
-.arriba_der{
-  width: 20%;
-  height: 560px;
+.medio{
+  
 }
 
 .abajo{
