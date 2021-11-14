@@ -24,7 +24,7 @@ from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import User
-from .forms import UserForm, UserFormLogin, LoginForm
+from .forms import UserFormRegistro, UserFormLogin, LoginForm
 from django.db import connections
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -48,11 +48,11 @@ def post_prueba(request):
 
     else:
 
-        form = UserForm()
+        form = UserFormRegistro()
 
         if request.method == 'POST':
 
-            form = UserForm(request.POST)
+            form = UserFormRegistro(request.POST)
             context = {'form':form}
 
             #Siempre que trabajemos con un formulario, tenemos que comprobar que sea valido, esto se hace con la instruccion form.is_vail()
@@ -140,4 +140,13 @@ def perfil(request):
 
 def test(request):
     return render(request, 'test.html')
+
+def registro(request):
+
+    form = UserFormRegistro()
+
+    context= {'form':form}
+
+    return render(request, 'registro.html', context)
+
 
