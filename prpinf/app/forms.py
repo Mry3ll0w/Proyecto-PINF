@@ -3,7 +3,7 @@ from .models import User
 from django.forms import ModelForm, fields
 from django import forms
 
-class UserForm(ModelForm):
+class UserFormRegistro(ModelForm):
     class Meta:
         model = User
         fields =['mail','nickname','password'] 
