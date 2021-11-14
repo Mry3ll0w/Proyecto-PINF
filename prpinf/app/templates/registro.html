@@ -1,4 +1,6 @@
-<!doctype html>
+
+<!doctype html>\
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,7 +48,7 @@
 
     <div class="form-floating">
       
-      <label for="floatingInput">Correo Electrónico</label>
+
       <br>
       <form action="" method="post">{% csrf_token %}
         <input type="email" class="form-control" id="floatingInput" placeholder="nombre@email.com">
@@ -59,16 +61,7 @@
     <br>
     <br>
   </div>
-  <div class="form-floating">
-    <label for="floatingPassword">Contraseña</label>
-    <br>
-    <form action="" method="post">{% csrf_token %}
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-      {{form}}
-      <input type="submit">
-    </form>
-      
-    </div>
+  
     
       <button class="w-100 btn btn-lg btn-primary" type="submit">
         <a href="home.html">
