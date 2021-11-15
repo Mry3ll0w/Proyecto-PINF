@@ -26,3 +26,12 @@ class CreatePollForm(ModelForm):
     class Meta:
         model = Poll
         fields = ['value']
+
+class RegisterUserForm(forms.Form):
+
+    mail = forms.CharField(max_length=64)
+    nickname = forms.CharField(max_length=12)
+    password = forms.CharField(max_length=12)
+
+    fields = ['mail', 'nickname','password']
+

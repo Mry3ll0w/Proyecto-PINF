@@ -41,38 +41,38 @@
    <img class="mb-4" src="Logo sin fondo.png" alt="imagen" width="50%" height="50%">
 
 <main class="form-signin">
-  <form>
+  <form action="" method="post">{% csrf_token %}
   
 
     <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
 
-    <div class="form-floating">
+
       
 
-      <form action="" method="post">
-      {% csrf_token %}
-        <h1>
-          <input type="email" name: "registro" value: "email" required placeholder="Correo Electronico">
-          {{form.email}}
-        </h1>
+ 
+      <h4>Correo Electronico</h4>
+      <h1>
+          <input type="email" name="mail">
+          
+      </h1>
+      <h4>Nombre de usuario</h4>
+      <h1>
+          <input type="text" name="nickname" >
+          
+      </h1>
+      <h4>Contraseña</h4>
+      <h1>
+          <input type="password" name="password">
+          
+      </h1>
+    <input type = "submit">
         
-        <h2>
-          <input type="text" name: "registro" value: "nickname" required placeholder="Nombre de usuario">
-          {{form.nickname}}
-        </h2>
-        
-        <h3>
-          <input type="password" name: "registro" value: "password" required placeholder="Contraseña">
-          {{form.password}}
-        </h3>
-        <input type = "submit"></input>
-        
-      </form>
+
   
   </form>
+  <form>
     <br>
     <br>
-  </div>
   
     
       <button class="w-100 btn btn-lg btn-primary" type="submit">

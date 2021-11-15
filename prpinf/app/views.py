@@ -24,7 +24,7 @@ from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import User
-from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm
+from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm, RegisterUserForm
 from django.db import connections
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -147,6 +147,7 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
 
     return render(request, 'prueba_poll.html')
 
+<<<<<<< Updated upstream
 # --------------------------------------------------- POLL_PARSER -------------------------------------------------------------------------- #
 def test(request): #Endpoint para la redireccion de los test
     return render(request, 'test.html')
@@ -182,6 +183,26 @@ def test1(request):
 
 
     return render(request,'test1.html')
+=======
+
+#----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------
+
+def registro(request):
+
+    if request.method == 'POST':
+
+        mail = request.POST['mail']
+        nickname = request.POST['nickname']
+        password = request.POST['password']
+
+        print(mail)
+        print(nickname)
+        print(password)
+
+    return render(request, 'registro.html') 
+
+
+>>>>>>> Stashed changes
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 
 
@@ -201,12 +222,6 @@ def perfil(request):
 def test(request):
     return render(request, 'test.html')
 
-def registro(request):
 
-    form = UserFormRegistro()
-
-    context= {'form':form}
-
-    return render(request, 'registro.html', context)
 
 

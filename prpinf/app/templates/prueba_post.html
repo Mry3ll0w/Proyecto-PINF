@@ -7,8 +7,18 @@
 <hr>
 <h2>INDIQUE SUS CREDENCIALES</h2>
 <form action="" method="post">{% csrf_token %}
-    
-    {{form}}
+    <h4>Correo Electronico</h4>
+    <h1>    
+        {{form.mail}}
+    </h1>
+    <h4>Nombre de Usuario</h4>
+    <h1>
+        {{form.nickname}}
+    </h1>
+    <h4>Contraseña</h4>
+    <h1>
+        {{form.password}}
+    </h1>
     <input type="submit">
 
 </form>
