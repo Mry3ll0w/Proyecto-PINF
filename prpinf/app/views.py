@@ -128,22 +128,7 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
     if request.method == 'POST': #Comprobamos si el metodo es correcto
 
         input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
-        data2 = request.POST['poll2'] 
-        #Comprobamos que lo recibido sea X y trabajamos con el , en este caso solo printeamos
-        if input_data == 'option1':
-            print (input_data)
-
-        elif input_data == 'option2':
-            print (input_data)
-
-        elif input_data == 'option3':
-            print (input_data)
-
-        elif input_data == 'option4': 
-            print (input_data)
-
-        else:
-            return HttpResponse(400, 'Invalid form') # En caso de no contener un JSON correcto obtendremos un 400 
+        print(request.POST)
 
     return render(request, 'prueba_poll.html')
 

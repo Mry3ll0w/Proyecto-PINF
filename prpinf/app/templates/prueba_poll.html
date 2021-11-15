@@ -6,17 +6,36 @@
     <h2> 
         
        <input type="radio" name="poll" value="option1" required>ta mal
-        {{ PruebaPollform.value }}
+        
         <input type="radio" name="poll" value="option2" required>ta bien
-        {{ PruebaPollform.value }}
+        
         <input type="radio" name="poll" value="option3" required>ta loco
-        {{ PruebaPollform.value }}
+        
         <input type="radio" name="poll" value="option4" required>ta loco
-        {{ PruebaPollform.value }}
+        
         
     </h2>
-    <input type="submit"></input>
+    <h1>Encuesta 2</h1>
+    <h2> 
+        
+       <input type="radio" name="poll2" value="option1" required>a
+        
+        <input type="radio" name="poll2" value="option2" required>b
+        
+        <input type="radio" name="poll2" value="option3" required>c
+        
+        <input type="radio" name="poll2" value="option4" required>d
+        
+        
+    </h2>
 
 </form>
 
+<form action="" method="post">
+{% csrf_token %}
+    
+    
+
+</form>
+<input type="submit"></input>
 </html>
