@@ -147,7 +147,6 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
 
     return render(request, 'prueba_poll.html')
 
-<<<<<<< Updated upstream
 # --------------------------------------------------- POLL_PARSER -------------------------------------------------------------------------- #
 def test(request): #Endpoint para la redireccion de los test
     return render(request, 'test.html')
@@ -183,7 +182,6 @@ def test1(request):
 
 
     return render(request,'test1.html')
-=======
 
 #----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------
 
@@ -202,7 +200,6 @@ def registro(request):
     return render(request, 'registro.html') 
 
 
->>>>>>> Stashed changes
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 
 
