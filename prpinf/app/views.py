@@ -128,7 +128,7 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
     if request.method == 'POST': #Comprobamos si el metodo es correcto
 
         input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
-        
+        data2 = request.POST['poll2'] 
         #Comprobamos que lo recibido sea X y trabajamos con el , en este caso solo printeamos
         if input_data == 'option1':
             print (input_data)
@@ -148,29 +148,40 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
     return render(request, 'prueba_poll.html')
 
 # --------------------------------------------------- POLL_PARSER -------------------------------------------------------------------------- #
-def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO ES EL DEFINITIVO)
+def test(request): #Endpoint para la redireccion de los test
+    return render(request, 'test.html')
+#----------------------------------------------------POLL -------------------------------------------------
+def test1(request):
     if request.method == 'POST': #Comprobamos si el metodo es correcto
-
-        input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
         
-        #Comprobamos que lo recibido sea X y trabajamos con el , en este caso solo printeamos
-        if input_data == 'option1':
-            print (input_data)
+        #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
 
-        elif input_data == 'option2':
-            print (input_data)
+        # hacemos el catch de los datos que nos llegan del html
+        res1 = request.POST['poll1'] 
+        res2 = request.POST['poll2'] 
+        res3 = request.POST['poll3'] 
+        res4 = request.POST['poll4'] 
+        res5 = request.POST['poll5'] 
+        res6 = request.POST['poll6'] 
+        res7 = request.POST['poll7'] 
+        res8 = request.POST['poll8'] 
+        res9 = request.POST['poll9'] 
+        res10 = request.POST['poll10'] 
+        res11 = request.POST['poll11'] 
+        res12 = request.POST['poll12'] 
+        res13 = request.POST['poll13'] 
+        res14 = request.POST['poll14']
+        res15 = request.POST['poll15']
+        res16 = request.POST['poll16']
+        res17 = request.POST['poll17'] 
+        res = []
+        res +=res1+ res2+ res3+ res4+ res5+ res6
+        #ahora recorremos los distintos
+        
+       
 
-        elif input_data == 'option3':
-            print (input_data)
 
-        elif input_data == 'option4': 
-            print (input_data)
-
-        else:
-            return HttpResponse(400, 'Invalid form') # En caso de no contener un JSON correcto obtendremos un 400 
-
-    return render(request, 'prueba_poll.html')
-
+    return render(request,'test1.html')
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 
 
