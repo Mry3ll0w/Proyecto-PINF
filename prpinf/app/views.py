@@ -147,7 +147,33 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
 
     return render(request, 'prueba_poll.html')
 
+# --------------------------------------------------- POLL_PARSER -------------------------------------------------------------------------- #
+def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO ES EL DEFINITIVO)
+    if request.method == 'POST': #Comprobamos si el metodo es correcto
+
+        input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
+        
+        #Comprobamos que lo recibido sea X y trabajamos con el , en este caso solo printeamos
+        if input_data == 'option1':
+            print (input_data)
+
+        elif input_data == 'option2':
+            print (input_data)
+
+        elif input_data == 'option3':
+            print (input_data)
+
+        elif input_data == 'option4': 
+            print (input_data)
+
+        else:
+            return HttpResponse(400, 'Invalid form') # En caso de no contener un JSON correcto obtendremos un 400 
+
+    return render(request, 'prueba_poll.html')
+
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
+
+
 
 def home(request):
     return render(request, 'home.html')
