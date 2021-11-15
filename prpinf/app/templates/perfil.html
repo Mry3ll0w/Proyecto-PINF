@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- Created By CodingLab - www.codinglabweb.com -->
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
@@ -46,7 +47,7 @@
 <body>
   <div class="card">
     <div class="card-header"
-  style="background-image: url(logo.png)">
+  style="background-image: url('{{ STATIC_URL }} ../../static/LOGO.png')">
     
     </div>
 

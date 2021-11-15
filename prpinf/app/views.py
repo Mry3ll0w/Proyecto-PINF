@@ -125,10 +125,18 @@ def login_prueba(request):
 
 # --------------------------------------------------- PRUEBA_POLL -------------------------------------------------------------------------- #
 def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO ES EL DEFINITIVO)
-    if request.method == 'POST': #Comprobamos si el metodo es correcto
+    # if request.method == 'POST': #Comprobamos si el metodo es correcto
 
-        input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
-        print(request.POST)
+    #     input_data = request.POST['poll'] # hacemos el catch de los datos que nos llegan del html
+    #     print(request.POST)
+
+    if request.method == 'POST':
+
+        poll1 = request.POST['poll1']
+        poll2 = request.POST['poll2']
+
+        print(poll1)
+        print(poll2)
 
     return render(request, 'prueba_poll.html')
 
@@ -137,6 +145,7 @@ def test(request): #Endpoint para la redireccion de los test
     return render(request, 'test.html')
 #----------------------------------------------------POLL -------------------------------------------------
 def test1(request):
+
     if request.method == 'POST': #Comprobamos si el metodo es correcto
         
         #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
@@ -159,13 +168,13 @@ def test1(request):
         res15 = request.POST['poll15']
         res16 = request.POST['poll16']
         res17 = request.POST['poll17'] 
-        res = []
-        res +=res1+ res2+ res3+ res4+ res5+ res6
+        res18 = request.POST['poll18']
+
+        # res = []
+        # res +=res1+ res2+ res3+ res4+ res5+ res6
         #ahora recorremos los distintos
         
        
-
-
     return render(request,'test1.html')
 
 #----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------

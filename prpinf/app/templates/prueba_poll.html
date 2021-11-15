@@ -1,17 +1,17 @@
 <html>
 <title>Mucha grasia Poll</title>
-<form action="" method="post">
-{% csrf_token %}
+<form action="" method="post">{% csrf_token %}
+
     <h1>Encuesta 1</h1>
     <h2> 
         
-       <input type="radio" name="poll" value="option1" required>ta mal
+       <input type="radio" name="poll1" value="option1" required>a
         
-        <input type="radio" name="poll" value="option2" required>ta bien
+        <input type="radio" name="poll1" value="option2" required>b
         
-        <input type="radio" name="poll" value="option3" required>ta loco
+        <input type="radio" name="poll1" value="option3" required>c
         
-        <input type="radio" name="poll" value="option4" required>ta loco
+        <input type="radio" name="poll1" value="option4" required>d
         
         
     </h2>
@@ -28,14 +28,8 @@
         
         
     </h2>
+    <input type="submit">
 
 </form>
 
-<form action="" method="post">
-{% csrf_token %}
-    
-    
-
-</form>
-<input type="submit"></input>
 </html>

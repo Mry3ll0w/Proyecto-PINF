@@ -1,6 +1,7 @@
+<!-- CAMBIAR LOS RADIO POR CHECKBOX Y ESPACIAR LAS RESPUESTAS -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
 {% load static %}
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -50,18 +51,20 @@
 <body class = "text">
     <br>
     <br>
-    <form action="" method="post">
-      {% csrf_token %}
+    <form action="" method="post">{% csrf_token %}
+      
           <h2>1. Me considero valios@, válid@ y digno de amor y respeto.</h2>
-    
-             <input type="radio" name="poll1" value="option1" required>Nada desacuerdo
-              {{ PruebaPollform.value }}
+
+            <!-- HAY QUE CAMBIAR TOD POR CHECKBOX -->
+
+             <input type="checkbox" name="poll1" value="option1" required>Nada desacuerdo
+              <br>
               <input type="radio" name="poll1" value="option2" required>En desacuerdo
-              {{ PruebaPollform.value }}
+              
               <input type="radio" name="poll1" value="option3" required>De acuerdo
-              {{ PruebaPollform.value }}
+              
               <input type="radio" name="poll1" value="option4" required>Muy de acuerdo
-              {{ PruebaPollform.value }}
+              
 
           <br>
           <br>
@@ -210,19 +213,6 @@
           <br>
           <h2>13. No me culpo de las cosas que me suceden que escapan a mi control.</h2> 
                   
-             <input type="radio" name="poll12" value="option1" required>Nada desacuerdo
-              {{ PruebaPollform.value }}
-             <input type="radio" name="poll12" value="option2" required>En desacuerdo
-              {{ PruebaPollform.value }}
-             <input type="radio" name="poll12" value="option3" required>De acuerdo
-              {{ PruebaPollform.value }}
-             <input type="radio" name="poll12" value="option4" required>Muy de acuerdo
-              {{ PruebaPollform.value }}    
-
-          <br>
-          <br>
-          <h2>14. En mi dia a dia suelo tomar decisiones sobre lo que quiero hacer y como.</h2> 
-                  
              <input type="radio" name="poll13" value="option1" required>Nada desacuerdo
               {{ PruebaPollform.value }}
              <input type="radio" name="poll13" value="option2" required>En desacuerdo
@@ -230,11 +220,11 @@
              <input type="radio" name="poll13" value="option3" required>De acuerdo
               {{ PruebaPollform.value }}
              <input type="radio" name="poll13" value="option4" required>Muy de acuerdo
-              {{ PruebaPollform.value }}
-           
+              {{ PruebaPollform.value }}    
+
           <br>
           <br>
-          <h2>15. Se me acepta tal y como soy en los grupos en los que formo parte.</h2> 
+          <h2>14. En mi dia a dia suelo tomar decisiones sobre lo que quiero hacer y como.</h2> 
                   
              <input type="radio" name="poll14" value="option1" required>Nada desacuerdo
               {{ PruebaPollform.value }}
@@ -243,50 +233,63 @@
              <input type="radio" name="poll14" value="option3" required>De acuerdo
               {{ PruebaPollform.value }}
              <input type="radio" name="poll14" value="option4" required>Muy de acuerdo
+              {{ PruebaPollform.value }}
+           
+          <br>
+          <br>
+          <h2>15. Se me acepta tal y como soy en los grupos en los que formo parte.</h2> 
+                  
+             <input type="radio" name="poll15" value="option1" required>Nada desacuerdo
+              {{ PruebaPollform.value }}
+             <input type="radio" name="poll15" value="option2" required>En desacuerdo
+              {{ PruebaPollform.value }}
+             <input type="radio" name="poll15" value="option3" required>De acuerdo
+              {{ PruebaPollform.value }}
+             <input type="radio" name="poll15" value="option4" required>Muy de acuerdo
               {{ PruebaPollform.value }} 
           
           <br>
           <br>
           <h2>16. Suelo perder energia enfrascandome en conflictos que me voy encontrando en vez de focalizar esta energia a lo que quiero alcanzar.</h2> 
                   
-             <input type="radio" name="poll15" value="option4" required>Nada desacuerdo
+             <input type="radio" name="poll16" value="option4" required>Nada desacuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll15" value="option3" required>En desacuerdo
+             <input type="radio" name="poll16" value="option3" required>En desacuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll15" value="option2" required>De acuerdo
+             <input type="radio" name="poll16" value="option2" required>De acuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll15" value="option1" required>Muy de acuerdo
+             <input type="radio" name="poll16" value="option1" required>Muy de acuerdo
               {{ PruebaPollform.value }}     
             
           <br>
           <br>
           <h2>17. La personas cercanas a mi(padres, amig@s,pareja...) me felicitan por mis logros, me motivan a seguir con mis objetivos.</h2> 
                   
-             <input type="radio" name="poll16" value="option1" required>Nada desacuerdo
+             <input type="radio" name="poll17" value="option1" required>Nada desacuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll16" value="option2" required>En desacuerdo
+             <input type="radio" name="poll17" value="option2" required>En desacuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll16" value="option3" required>De acuerdo
+             <input type="radio" name="poll17" value="option3" required>De acuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll16" value="option4" required>Muy de acuerdo
+             <input type="radio" name="poll17" value="option4" required>Muy de acuerdo
               {{ PruebaPollform.value }}    
           
           <br>
           <br>
           <h2>18. Mi estabilidad emocional está totalmente ligada a algunas personas o a mi identidad dentro de algun grupo(familia,trabajo...).</h2> 
                   
-             <input type="radio" name="poll17" value="option4" required>Nada desacuerdo
+             <input type="radio" name="poll18" value="option4" required>Nada desacuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll17" value="option3" required>En desacuerdo
+             <input type="radio" name="poll18" value="option3" required>En desacuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll17" value="option2" required>De acuerdo
+             <input type="radio" name="poll18" value="option2" required>De acuerdo
               {{ PruebaPollform.value }}
-             <input type="radio" name="poll17" value="option1" required>Muy de acuerdo
+             <input type="radio" name="poll18" value="option1" required>Muy de acuerdo
               {{ PruebaPollform.value }}
           
           <br> 
           <br>    
-        <input type="submit"></input>
+        <input type="submit">
     </form>  
 </body>
   </html>
