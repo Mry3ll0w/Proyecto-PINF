@@ -192,14 +192,44 @@ def registro(request):
         mail = request.POST['mail']
         nickname = request.POST['nickname']
         password = request.POST['password']
+        
 
-        print(mail)
-        print(nickname)
-        print(password)
+        new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
+        new_user.save()
+
+        messages.success(request, 'Se ha creado la cuenta')
+        return redirect('http://127.0.0.1:8000/app/index/')
+        
 
     return render(request, 'registro.html') 
 
+#----------------------------------------------------LOGIN FINAL-----------------------------------------------------------------------------
+def index(request):
 
+    if request.method == 'POST':
+
+        nickname = request.POST['nickname']
+        password = request.POST['password']
+
+        querys = User.objects.all()
+        isRegistered = False
+
+        for i in querys:
+
+            if i.nickname == nickname and i.password == password:
+
+                isRegistered = True
+
+        if isRegistered == True:
+
+            return redirect('http://127.0.0.1:8000/app/prueba_poll/')
+
+        else:
+            return redirect('http://127.0.0.1:8000/app/index/')        
+
+
+
+    return render(request, 'index.html')
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 
 
@@ -210,8 +240,6 @@ def home(request):
 def foro(request):
     return render(request, 'foro.html')
 
-def index(request):
-    return render(request, 'index.html')
 
 def perfil(request):
     return render(request, 'perfil.html')

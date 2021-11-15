@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -13,7 +14,6 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -33,51 +33,39 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="../../static/signin.css" rel="stylesheet">
+    <link href="{% static 'signin.css' %}" rel="stylesheet">
   </head>
   <body class="text-center">   
-   <img class="mb-4" src="Logo sin fondo.png" alt="imagen" width="50%" height="50%">
+   <img class="mb-4" src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="50%" height="50%">
 
 <main class="form-signin">
-  <form>
+  <form action="" method="post">{% csrf_token %}
   
 
     <h1 class="h3 mb-3 fw-normal">INICIAR SESIÓN</h1>
 
-    <div class="form-floating">
-      
-        <label for="floatingInput">Correo Electrónico</label>
-        <br>
-        <form action="" method="post">{% csrf_token %}
-          <input type="email" class="form-control" id="floatingInput" placeholder="nombre@email.com">
-          {{form}}
-          <input type="submit">
-        </form>
+      <!--BIBLIA-->
+      <h4>Nombre de usuario</h4>
+      <h5>
+          <input type="text" name="nickname"> <!--SE VE MUY CHICO-->
+          
+      </h5>
+      <h4>Contraseña</h4>
+      <h5>
+          <input type="password" name="password">
+          
+      </h5>
+    <input type = "submit">
     
-    </form>
-      <label for="floatingInput">Correo Electrónico</label>
-      <br>
-      <br>
-    </div>
-    <div class="form-floating">
-      <label for="floatingPassword">Contraseña</label>
-      <br>
-      <form action="" method="post">{% csrf_token %}
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-        {{form}}
-        <input type="submit">
-      </form>
-    <br>
-      
-    </div>
 
+    <h4>¿No está registrado?</h4>
     <button class="w-100 btn btn-lg btn-primary" type="submit">
-    	<a href="home.html">
-    			Iniciar Sesión
+    	<a href="http://127.0.0.1:8000/app/registro/">
+    			Registrarse
     	</a>
     </button>
 	
-    <a class="link" href="registro.html" style="color: black;">Registrarse</a>
+    
     <p class="mt-5 mb-3 text-muted">&copy; 2021–2021</p>
   </form>
 </main>
