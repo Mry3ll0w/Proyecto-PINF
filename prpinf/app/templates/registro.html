@@ -44,20 +44,32 @@
   <form>
   
 
-    <h1 class="h3 mb-3 fw-normal">REGISTRO</h1>
+    <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
 
     <div class="form-floating">
       
 
-      <br>
-      <form action="" method="post">{% csrf_token %}
-        <input type="email" class="form-control" id="floatingInput" placeholder="nombre@email.com">
-        {{form}}
-        <input type="submit">
+      <form action="" method="post">
+      {% csrf_token %}
+        <h1>
+          <input type="email" name: "registro" value: "email" required placeholder="Correo Electronico">
+          {{form.email}}
+        </h1>
+        
+        <h2>
+          <input type="text" name: "registro" value: "nickname" required placeholder="Nombre de usuario">
+          {{form.nickname}}
+        </h2>
+        
+        <h3>
+          <input type="password" name: "registro" value: "password" required placeholder="Contraseña">
+          {{form.password}}
+        </h3>
+        <input type = "submit"></input>
+        
       </form>
   
   </form>
-    <label for="floatingInput">Correo Electrónico</label>
     <br>
     <br>
   </div>
