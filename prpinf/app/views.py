@@ -281,7 +281,11 @@ def prueba_valor(request):
 
         #Creas un context con el nombre de lo que vayas a pedir
 
-        context = {'consejo 1':'nojeque nojecuant', 'consejo 2':'nojeque'}
+        #MIRA ESTO ROLDAN ASI TIENES QUE GUARDAR LOS CONSEJOS
+
+        #Y SOLO RELLENARLOS DE ESTA FORMA context['consejo 2'] = cagaste SI EL RESULTADO ES MENOR O IGUAL A 2 
+
+        context = {'consejo 1':'', 'consejo 2':''}
 
         #Pides lo que haga falta
 
