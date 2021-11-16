@@ -48,33 +48,25 @@ def post_prueba(request):
 
     else:
 
-        form = UserFormRegistro()
-
         if request.method == 'POST':
-
-            form = UserFormRegistro(request.POST)
-            context = {'form':form}
 
             #Siempre que trabajemos con un formulario, tenemos que comprobar que sea valido, esto se hace con la instruccion form.is_vail()
 
             #Con esto nos aseguramos de que la primera vez que se acceda a la url no busque un formulario lleno
 
-            if form.is_valid():
-
                 #Ahora vamos a obtener la data limpia del form, [usamos form.cleaned_data.get]esto se puede hacer de muchas formas pero esta me parece la mas clara
 
-                mail = form.cleaned_data.get('mail')
-                nickname = form.cleaned_data.get('nickname')
-                password = form.cleaned_data.get('password')
+            mail = request.POST['mail']
+            nickname = request.POST['nickname']
+            password = request.POST['password']
 
-                new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
-                new_user.save()
+            new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
+            new_user.save()
 
-                messages.success(request, 'Se ha creado la cuenta')
-                return redirect('http://127.0.0.1:8000/app/prueba_login/')
+            messages.success(request, 'Se ha creado la cuenta')
+            return redirect('http://127.0.0.1:8000/app/prueba_login/')
 
-        context = {'form':form}
-        return render(request, 'prueba_post.html', context) 
+        return render(request, 'prueba_post.html') 
 
 #------------------------------------------------------LOGIN---------------------------------------------------------------------------------------
 
