@@ -285,17 +285,22 @@ def prueba_valor(request):
 
         #Y SOLO RELLENARLOS DE ESTA FORMA context['consejo 2'] = cagaste SI EL RESULTADO ES MENOR O IGUAL A 2 
 
-        context = {'consejo 1':'', 'consejo 2':''}
+        context = {'consejo_1':'', 'consejo_2':'', 'consejo_3':''}
+
+        aux = {'aux1':'Eres un trozo de mierda'}
 
         #Pides lo que haga falta
 
         a = request.POST['a']
         b = request.POST['b']
-        suma = a+b
+        consejo_1  = {'Eres un trozo de mierda'}
+        consejo_2 = 'tu eres maricon'
+        consejo_3  = 'Ta bien pa se un retrasao'
+        consejo_4 = 'Literalmente te gusta la rueda, suicidate'
 
         #Llenas "resultado" de esta forma con lo que sea que quieras pasar al html 
 
-        context['resultado'] = suma
+        context['consejo_1'] = aux['aux1']
 
         #Rendereas un html que ensenye la solucion PERO AHORA PASANDOLE LA VARIABLE context
 
