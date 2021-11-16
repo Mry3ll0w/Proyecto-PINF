@@ -15,4 +15,5 @@ urlpatterns = [
     path('poll/',views.test),
     path('poll/test1/',views.test1),
     path('prueba_valor/', views.prueba_valor),
+    path('poll/satisfaccion/', views.testsatisfaction)
 ]

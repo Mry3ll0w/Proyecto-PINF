@@ -212,7 +212,41 @@ def test1(request):
        
     return render(request,'test1.html')
 
+#---------------------------------------------------Test Satisfaccion -----------------------------------------------------------
+def testsatisfaction(request):
+    context = {'total_puntos': ''}
+    if request.method == 'POST': #Comprobamos si el metodo es correcto
+        
+        #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
+
+        # hacemos el catch de los datos que nos llegan del html
+        p20 = request.POST['poll20'] 
+        p21 = request.POST['poll21']
+
+        res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
+        res +=[p20]
+        res +=[p21]
+        print (res)
+        total_puntos = 0 #Almacenara el total de puntos obtenidos
+        for i in res: #Recorremos el dict para meter los ptos 
+            if i == 'option1':
+                total_puntos+=1
+            elif i == 'option2':
+                total_puntos+=2
+            elif i == 'option3':
+                total_puntos+=3
+            elif i == 'option4':
+                total_puntos+=4
+        print("El numero de puntos es: ",total_puntos) # FALTA INSERTAR EN USER LA SATISFACCION
+        
+        redirect('http://127.0.0.1:8000/app/home/')      
+   
+       
+    return render(request,'test_satisfaccion.html')
+
 #----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------
+
+
 
 def registro(request):
 
