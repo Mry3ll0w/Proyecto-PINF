@@ -192,15 +192,19 @@ def test1(request):
         '''
         # Miramos en que intervalo esta y metemos el consejo correspondiente
         if total_puntos <=35 :
-            consejo = "Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima"
+            consejo_final = {'respuesta':'Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima'}
         elif 36 <= total_puntos <= 47: 
-            consejo = "Baja Autoestima"
+            consejo_final = {'respuesta':'Baja Autoestima'}
         elif 48 <= total_puntos <=59:
-            consejo = "En camino a alcanzar una alta autoestima"
+            consejo_final = {'respuesta':'En camino a alcanzar una alta autoestima'}
         elif 60 <= total_puntos <= 72:
-            consejo = "Alta autoestima"
+            consejo_final = {'respuesta':'Alta autoestima'}
+
+        context = {'consejo':''}
+
+        context['consejo'] = consejo_final['respuesta']
         
-        print(consejo)
+        return render(request, 'test1_solucion.html', context)
         
         #FALTA INSERTAR EL CONSEJO + DONE TEST1 + PUNTUACION EN EL USER LOGEADO
 
