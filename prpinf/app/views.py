@@ -298,4 +298,33 @@ def test(request):
 
 
 
+#SOLO ESTOY HACIENDO PRUEBAS PARA VER COMO SE PASAN VALORES A UN HTML, EASY
+def prueba_valor(request):
+
+    if request.method == 'POST':
+
+        #Creas un context con el nombre de lo que vayas a pedir
+
+        context = {'resultado':0}
+
+        #Pides lo que haga falta
+
+        a = request.POST['a']
+        b = request.POST['b']
+        suma = a+b
+
+        #Llenas "resultado" de esta forma con lo que sea que quieras pasar al html 
+
+        context['resultado'] = suma
+
+        #Rendereas un html que ensenye la solucion PERO AHORA PASANDOLE LA VARIABLE context
+
+        #Okay, vamos a irnos al html prueba_valor_solucion para ver como lo ensenyamos
+
+        return render(request, 'prueba_valor_solucion.html', context)
+
+    return render(request, 'prueba_valor.html')
+
+
+
 
