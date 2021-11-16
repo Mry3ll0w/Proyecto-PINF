@@ -105,21 +105,19 @@ input[type=radio]{
 
 .principal{
   display: block;
+  text-align: center;
   
 }
 .arriba{
-  height: 350px;
+  height: 525px;
   display: flex;
   text-align: center;  
 }
 .arriba_izq{
-  height: 350px;
+  height: 525px;
   text-align: center; 
 }
 
-}
-.medio{
-  
 }
 
 .abajo{
