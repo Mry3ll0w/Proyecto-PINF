@@ -122,7 +122,7 @@ def login_prueba(request):
 
     context = {'form':form}
     return render(request, 'prueba_login.html', context) 
-
+ 
 # --------------------------------------------------- PRUEBA_POLL -------------------------------------------------------------------------- #
 def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO ES EL DEFINITIVO)
     # if request.method == 'POST': #Comprobamos si el metodo es correcto
@@ -134,9 +134,28 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
 
         poll1 = request.POST['poll1']
         poll2 = request.POST['poll2']
-
-        print(poll1)
-        print(poll2)
+        res = []
+        res += [poll1, poll2]
+        print ("Prueba con dict")
+        for i in res:
+            print (i)
+        print ("Una vez recibimos los datos los tratamos con los options y tal")
+        suma = 0
+        for i in res:
+            if i == 'option1':
+                suma+=1
+            elif i == 'option2':
+                suma+=2
+            elif i == 'option3':
+                suma+=3
+            elif i == 'option4':
+                suma+=4
+        print("El numero de puntos es: ",suma)
+        #Test para comprobar el tema de los intervalos 
+        if 2 <= suma <= 4:
+            print(" entre 2 y 4")
+        elif 5 <= suma <= 8:
+            print (" entre 5 y 8")
 
     return render(request, 'prueba_poll.html')
 
@@ -170,9 +189,45 @@ def test1(request):
         res17 = request.POST['poll17'] 
         res18 = request.POST['poll18']
 
-        # res = []
-        # res +=res1+ res2+ res3+ res4+ res5+ res6
-        #ahora recorremos los distintos
+        res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
+        res +=[res1+ res2+ res3+ res4+ res5+ res6+res7+res8+res9+res10+res11+res12+res13+res14+res15+res16+res17+res18]
+        
+        total_puntos = 0 #Almacenara el total de puntos obtenidos
+        for i in res: #Recorremos el dict para meter los ptos 
+            if i == 'option1':
+                total_puntos+=1
+            elif i == 'option2':
+                total_puntos+=2
+            elif i == 'option3':
+                total_puntos+=3
+            elif i == 'option4':
+                total_puntos+=4
+        
+        print("El numero de puntos es: ",total_puntos)
+        #Una vez obtenidos los puntos le asignamos la valoracion requerida
+        consejo = " " # Almacenara el consejo a insertar (para a posteriori pasarlo a la clase) 
+        '''
+        ------------PUNTUACIONES-----------------
+        Si la puntuacion está entre 
+        18-35 ---> "Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima"
+        36-47 ---> "Baja Autoestima"
+        48-59 ---> "En camino a alcanzar una alta autoestima"
+        60-72 ---> "Alta autoestima" 
+        '''
+        # Miramos en que intervalo esta y metemos el consejo correspondiente
+        if total_puntos <=35 :
+            consejo = "Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima"
+        elif 36 <= total_puntos <= 47: 
+            consejo = "Baja Autoestima"
+        elif 48 <= total_puntos <=59:
+            consejo = "En camino a alcanzar una alta autoestima"
+        elif 60 <= total_puntos <= 72:
+            consejo = "Alta autoestima"
+        
+        print(consejo)
+        
+        #FALTA INSERTAR EL CONSEJO + DONE TEST1 + PUNTUACION EN EL USER LOGEADO
+
         
        
     return render(request,'test1.html')
