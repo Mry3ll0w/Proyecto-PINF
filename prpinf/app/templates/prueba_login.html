@@ -8,7 +8,15 @@
 <h2>INTRODUZCA SU NOMBRE Y SU PASSWORD</h2>
 <form action="" method="post">{% csrf_token %}
     
-    {{form}}
+    <h5>NOMBRE DE USUARIO</h5>
+    <h1>
+        <input type="text" name="nickname">
+    </h1>
+    <h5>CONTRASENYA</h5>
+    <h1>
+        <input type="password" name="password">
+    </h1>
+    
     <input type="submit">
 
 </form>
