@@ -281,7 +281,7 @@ def prueba_valor(request):
 
         #Creas un context con el nombre de lo que vayas a pedir
 
-        context = {'resultado':0}
+        context = {'consejo 1':'nojeque nojecuant', 'consejo 2':'nojeque'}
 
         #Pides lo que haga falta
 
