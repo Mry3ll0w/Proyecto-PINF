@@ -1,0 +1,99 @@
+<!-- CAMBIAR LOS RADIO POR CHECKBOX Y ESPACIAR LAS RESPUESTAS -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="{% static 'test-generico.css' %}" rel="stylesheet">
+</head>
+<header>
+    <div class="container">
+      <input type="radio" name="s" id="home">
+  
+      <input type="radio" name="s" id="test" checked>
+      <input type="radio" name="s" id="foro">
+      <!--<input type="radio" name="s" id="help">-->
+      <input type="radio" name="s" id="perfil">
+      <nav>
+  
+        <div class="slider"></div>
+      
+        
+        <label class="home" for="home">
+        <i class="fas fa-home"></i>Home
+        </label>
+  
+  
+        <label class="test" for="test">
+        <a href="http://127.0.0.1:8000/app/poll/"> 
+        <i class="fas fa-blog"></i>Test
+        </a>
+        </label>
+  
+        <label class="foro" for="foro">
+        <a href="http://127.0.0.1:8000/app/foro">
+        <i class="fas fa-code"></i>Foro
+        </a>
+        </label>
+        <!--<label class="help" for="help">
+          <i class="fas fa-envelope"></i>
+        </label>-->
+        <label class="perfil" for="perfil">
+        <a href="http://127.0.0.1:8000/app/perfil">
+        <i class="fas fa-user"></i>Perfil
+        </a>
+        </label>
+      </nav>
+    </div>
+  </header>
+
+<body class = "text">
+    <br>
+    <br>
+    <form action="" method="post">{% csrf_token %}
+      
+          <h2>1. El diagnóstico que he sacado me parece correcto / es representativo.</h2>
+
+            <!-- Cuidado con los  -->
+
+             <label><input type="checkbox" name="poll20" value="option1" >Nada desacuerdo</label>
+              <br>
+              <label><input type="checkbox" name="poll20" value="option2" >En desacuerdo</label>
+              <br>
+              <label><input type="checkbox" name="poll20" value="option3" >De acuerdo</label>
+              <br>
+              <label><input type="checkbox" name="poll20" value="option4" >Muy de acuerdo</label>
+              
+
+          <br>
+          <br>
+          <h2>2. los diferentes test me han animado a indagar en mi nivel de autosestima y como mejorarla.</h2>
+              
+             <label><input type="checkbox" name="poll21" value="option1" >Nada desacuerdo</label>
+             <br>
+              <label><input type="checkbox" name="poll21" value="option2" >En desacuerdo</label>
+              <br>
+              <label><input type="checkbox" name="poll21" value="option3" >De acuerdo</label>
+              <br>
+              <label><input type="checkbox" name="poll21" value="option4" >Muy de acuerdo</label>
+              <br>
+
+          <br>
+          <br>
+          <!--   LA TERCERA PREGUNTA SALDRA EN LA SEGUNDA PRESENTACION
+          <h2>3. .</h2> 
+              
+            
+            <label><input type="checkbox" name="poll3" value="option1" >Nada desacuerdo</label>
+            <br>
+            <label><input type="checkbox" name="poll3" value="option2" >En desacuerdo</label>
+            <br>
+            <label><input type="checkbox" name="poll3" value="option3" >De acuerdo</label>
+            <br>
+            <label><input type="checkbox" name="poll3" value="option4" >Muy de acuerdo</label>
+          -->
+        <input type="submit">
+    </form>  
+</body>
+  </html>
