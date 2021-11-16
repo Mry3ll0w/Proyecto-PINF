@@ -288,15 +288,13 @@ def prueba_valor(request):
         context = {'consejo_1':'', 'consejo_2':'', 'consejo_3':''}
 
         aux = {'aux1':'Eres un trozo de mierda'}
+        
 
         #Pides lo que haga falta
 
         a = request.POST['a']
         b = request.POST['b']
-        consejo_1  = {'Eres un trozo de mierda'}
-        consejo_2 = 'tu eres maricon'
-        consejo_3  = 'Ta bien pa se un retrasao'
-        consejo_4 = 'Literalmente te gusta la rueda, suicidate'
+
 
         #Llenas "resultado" de esta forma con lo que sea que quieras pasar al html 
 
