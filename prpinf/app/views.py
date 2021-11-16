@@ -191,6 +191,9 @@ def test1(request):
         60-72 ---> "Alta autoestima" 
         '''
         # Miramos en que intervalo esta y metemos el consejo correspondiente
+
+        #REVISAR LAS COMPROBACIONES, NO DA LO QUE DEBERIA
+
         if total_puntos <=35 :
             consejo_final = {'respuesta':'Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima'}
         elif 36 <= total_puntos <= 47: 
