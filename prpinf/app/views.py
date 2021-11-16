@@ -239,7 +239,7 @@ def testsatisfaction(request):
                 total_puntos+=4
         print("El numero de puntos es: ",total_puntos) # FALTA INSERTAR EN USER LA SATISFACCION
         
-        redirect('http://127.0.0.1:8000/app/home/')      
+        return redirect('http://127.0.0.1:8000/app/perfil/')      
    
        
     return render(request,'test_satisfaccion.html')
@@ -285,7 +285,7 @@ def index(request):
 
         if isRegistered == True:
 
-            return redirect('http://127.0.0.1:8000/app/prueba_poll/')
+            return redirect('http://127.0.0.1:8000/app/home/')
 
         else:
             return redirect('http://127.0.0.1:8000/app/index/')        
