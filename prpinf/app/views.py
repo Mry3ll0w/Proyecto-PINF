@@ -60,6 +60,10 @@ def post_prueba(request):
 
         new_user.save()
 
+        calificiones_usuario = Calificaciones(id_usuario = request.user.id)
+
+        calificiones_usuario.save()
+
         messages.success(request, 'Se ha creado la cuenta')
         return redirect('http://127.0.0.1:8000/app/prueba_login/')
 
@@ -84,10 +88,6 @@ def login_prueba(request):
         if user is not None:
 
             login(request, user)
-
-            calificiones_usuario = Calificaciones(id_usuario = request.user.id)
-
-            calificiones_usuario.save()
 
             return redirect('http://127.0.0.1:8000/app/home/')
 
