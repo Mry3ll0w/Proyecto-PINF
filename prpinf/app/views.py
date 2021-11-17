@@ -363,38 +363,45 @@ def testsatisfaction(request):
         # hacemos el catch de los datos que nos llegan del html
         p20 = request.POST['poll20'] 
         p21 = request.POST['poll21']
+        
+        if p20 == 'option1':
+            
+            punt_1 = 1
+        
+        elif p20 == 'option2':
+            
+            punt_1 = 2
+        
+        elif p20 == 'option3':
+            
+            punt_1 = 3
+        
+        elif p20 == 'option4':
+            
+            punt_1 = 4
 
-        res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
-        res +=[p20]
-        res +=[p21]
+#Para        
+        if p21 == 'option1':
+            
+            punt_2 = 1
+        
+        elif p21 == 'option2':
+            
+            punt_2 = 2
+        
+        elif p21 == 'option3':
+            
+            punt_2 = 3
+        
+        elif p21 == 'option4':
+            
+            punt_2 = 4
 
-        print (res)
-
-        total_puntos = 0 #Almacenara el total de puntos obtenidos
-
-        for i in res: #Recorremos el dict para meter los ptos 
-
-            if i == 'option1':
-
-                total_puntos+=1
-
-            elif i == 'option2':
-
-                total_puntos+=2
-
-            elif i == 'option3':
-
-                total_puntos+=3
-
-            elif i == 'option4':
-
-                total_puntos+=4
-
-        print("El numero de puntos es: ",total_puntos) # FALTA INSERTAR EN USER LA SATISFACCION
 
         cal = Calificaciones.objects.get(id_usuario = request.user.id)
 
-        cal.ts_punct1 = total_puntos
+        cal.ts_punct1 = punt_1 
+        cal.ts_punct2 = punt_2
 
         cal.save()
         
