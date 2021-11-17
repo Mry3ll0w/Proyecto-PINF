@@ -133,6 +133,47 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
 
     return render(request, 'prueba_poll.html')
 
+#------------------------------------------PRUEBA DE VALORES POR PANTALLA A HTML------------
+def prueba_valor(request):
+
+    if request.method == 'POST':
+
+        #Creas un context con el nombre de lo que vayas a pedir
+
+        #MIRA ESTO ROLDAN ASI TIENES QUE GUARDAR LOS CONSEJOS
+
+        #Y SOLO RELLENARLOS DE ESTA FORMA context['consejo 2'] = cagaste SI EL RESULTADO ES MENOR O IGUAL A 2 
+
+        context = {'consejo_1':'', 'consejo_2':'', 'consejo_3':''}
+
+        aux = {'aux1':'Eres un trozo de mierda'}
+        
+
+        #Pides lo que haga falta
+
+        a = request.POST['a']
+        b = request.POST['b']
+
+
+        #Llenas "resultado" de esta forma con lo que sea que quieras pasar al html 
+
+        context['consejo_1'] = aux['aux1']
+
+        #Rendereas un html que ensenye la solucion PERO AHORA PASANDOLE LA VARIABLE context
+
+        #Okay, vamos a irnos al html prueba_valor_solucion para ver como lo ensenyamos
+
+        return render(request, 'prueba_valor_solucion.html', context)
+
+    return render(request, 'prueba_valor.html')
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------                    
+# ---------------------------------------------------VIEWS FINALES------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+
 #----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------
 
 def registro(request):
@@ -301,7 +342,7 @@ def testsatisfaction(request):
        
     return render(request,'test_satisfaccion.html')
 
-#-----------------------------------------------Views por implementar------------------------------------------------------------------------------
+#----------------------------------------------- VIEWS SIMPLES ------------------------------------------------------------------------------
 
 
 
@@ -333,39 +374,7 @@ def test(request):
 
 
 
-#SOLO ESTOY HACIENDO PRUEBAS PARA VER COMO SE PASAN VALORES A UN HTML, EASY
-def prueba_valor(request):
 
-    if request.method == 'POST':
-
-        #Creas un context con el nombre de lo que vayas a pedir
-
-        #MIRA ESTO ROLDAN ASI TIENES QUE GUARDAR LOS CONSEJOS
-
-        #Y SOLO RELLENARLOS DE ESTA FORMA context['consejo 2'] = cagaste SI EL RESULTADO ES MENOR O IGUAL A 2 
-
-        context = {'consejo_1':'', 'consejo_2':'', 'consejo_3':''}
-
-        aux = {'aux1':'Eres un trozo de mierda'}
-        
-
-        #Pides lo que haga falta
-
-        a = request.POST['a']
-        b = request.POST['b']
-
-
-        #Llenas "resultado" de esta forma con lo que sea que quieras pasar al html 
-
-        context['consejo_1'] = aux['aux1']
-
-        #Rendereas un html que ensenye la solucion PERO AHORA PASANDOLE LA VARIABLE context
-
-        #Okay, vamos a irnos al html prueba_valor_solucion para ver como lo ensenyamos
-
-        return render(request, 'prueba_valor_solucion.html', context)
-
-    return render(request, 'prueba_valor.html')
 
 
 
