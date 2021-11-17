@@ -336,6 +336,12 @@ def test1(request):
         context = {'consejo':''}
 
         context['consejo'] = consejo_final['respuesta']
+
+        cal = Calificaciones.objects.get(id_usuario = request.user.id)
+
+        cal.t1_punct = total_puntos
+
+        cal.save()
         
         return render(request, 'test1_solucion.html', context)
         
@@ -385,6 +391,12 @@ def testsatisfaction(request):
                 total_puntos+=4
 
         print("El numero de puntos es: ",total_puntos) # FALTA INSERTAR EN USER LA SATISFACCION
+
+        cal = Calificaciones.objects.get(id_usuario = request.user.id)
+
+        cal.ts_punct1 = total_puntos
+
+        cal.save()
         
         return redirect('http://127.0.0.1:8000/app/perfil/')      
    
