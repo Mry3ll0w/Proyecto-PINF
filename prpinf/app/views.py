@@ -234,8 +234,9 @@ def index(request):
 def test(request): #Endpoint para la redireccion de los test
     return render(request, 'test.html')
 #----------------------------------------------------POLL -------------------------------------------------
-def test1(request):
 
+def test1(request):
+    
     if request.method == 'POST': #Comprobamos si el metodo es correcto
         
         #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
@@ -261,12 +262,29 @@ def test1(request):
         res18 = request.POST['poll18']
 
         res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
-        res +=[res1+ res2+ res3+ res4+ res5+ res6+res7+res8+res9+res10+res11+res12+res13+res14+res15+res16+res17+res18]
+        res +=[res1]
+        res +=[res2]
+        res +=[res3]
+        res +=[res4]
+        res +=[res5]
+        res +=[res6]
+        res +=[res7]
+        res +=[res8]
+        res +=[res9]
+        res +=[res10]
+        res +=[res11]
+        res +=[res12]
+        res +=[res13]
+        res +=[res14]
+        res +=[res15]
+        res +=[res16]
+        res +=[res17]
+        res +=[res18]
         
         total_puntos = 0 #Almacenara el total de puntos obtenidos
 
         for i in res: #Recorremos el dict para meter los ptos 
-
+            
             if i == 'option1':
 
                 total_puntos+=1
@@ -314,6 +332,7 @@ def test1(request):
 
             consejo_final = {'respuesta':'Alta autoestima'}
 
+        
         context = {'consejo':''}
 
         context['consejo'] = consejo_final['respuesta']
@@ -325,7 +344,7 @@ def test1(request):
         
        
     return render(request,'test1.html')
-
+        
 #---------------------------------------------------Test Satisfaccion -----------------------------------------------------------
 def testsatisfaction(request):
 
