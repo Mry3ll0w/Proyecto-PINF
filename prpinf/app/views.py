@@ -65,7 +65,7 @@ def post_prueba(request):
         calificiones_usuario.save()
 
         messages.success(request, 'Se ha creado la cuenta')
-        return redirect('http://127.0.0.1:8000/app/prueba_login/')
+        return redirect('http://161.35.37.208:8000/app/prueba_login/')
 
     return render(request, 'prueba_post.html') 
 
@@ -89,11 +89,11 @@ def login_prueba(request):
 
             login(request, user)
 
-            return redirect('http://127.0.0.1:8000/app/home/')
+            return redirect('http://161.35.37.208:8000/app/home/')
 
         else:
 
-            return redirect('http://127.0.0.1:8000/app/prueba_login/')
+            return redirect('http://161.35.37.208:8000/app/prueba_login/')
 
     return render(request, 'prueba_login.html') 
  
@@ -199,7 +199,7 @@ def registro(request):
         calificiones_usuario.save()
 
         messages.success(request, 'Se ha creado la cuenta')
-        return redirect('http://127.0.0.1:8000/app/index/')
+        return redirect('http://161.35.37.208:8000/app/index/')
 
     return render(request, 'registro.html')
 
@@ -222,11 +222,11 @@ def index(request):
 
             login(request, user)
 
-            return redirect('http://127.0.0.1:8000/app/home/')
+            return redirect('http://161.35.37.208:8000/app/home/')
 
         else:
 
-            return redirect('http://127.0.0.1:8000/app/index/')
+            return redirect('http://161.35.37.208:8000/app/index/')
 
     return render(request, 'index.html')
 
@@ -405,7 +405,7 @@ def testsatisfaction(request):
 
         cal.save()
         
-        return redirect('http://127.0.0.1:8000/app/perfil/')      
+        return redirect('http://161.35.37.208:8000/app/perfil/')      
    
        
     return render(request,'test_satisfaccion.html')
