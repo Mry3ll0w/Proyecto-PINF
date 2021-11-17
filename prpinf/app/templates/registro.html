@@ -4,11 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Signin Template · Bootstrap v5.1</title>
+    <title>Registro</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -31,15 +27,28 @@
           font-size: 3.5rem;
         }
       }
+
+      header{
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffc5c8;
+      }
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="{% static 'signin.css' %}" rel="stylesheet">
   </head>
+  <header>
+    <div class="container">
+      <img class="mb-4" src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="25%" height="25%"style="background-color: #ffc5c8;">
+    </div>
+  </header>
   <body class="text-center">   
-   <img class="mb-4" src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="25%" height="25%">
-
+    
 <main class="form-signin">
   <form action="" method="post">{% csrf_token %}
   

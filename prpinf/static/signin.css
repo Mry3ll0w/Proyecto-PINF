@@ -2,11 +2,9 @@ html,
 body {
   height: 100%;
   font: sans-serif;
-
 }
 
 body {
-  display: flex;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -14,8 +12,17 @@ body {
   font: sans-serif;
 }
 
+header{
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-signin {
   background-color: #FFC898;
+  align-items: center;
   width: 100%;
   max-width: 370px;
   padding: 15px;
@@ -66,3 +73,4 @@ p{
 .link:hover{
   color: red;
 }
+
