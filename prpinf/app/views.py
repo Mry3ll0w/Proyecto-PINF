@@ -23,7 +23,7 @@
 from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-#from .models import User
+from .models import Calificaciones
 #from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm, RegisterUserForm
 from django.db import connections
 from django.forms import inlineformset_factory
@@ -84,6 +84,10 @@ def login_prueba(request):
         if user is not None:
 
             login(request, user)
+
+            calificiones_usuario = Calificaciones(id_usuario = request.user.id)
+
+            calificiones_usuario.save()
 
             return redirect('http://127.0.0.1:8000/app/home/')
 

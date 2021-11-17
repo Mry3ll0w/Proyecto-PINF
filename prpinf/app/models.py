@@ -20,13 +20,15 @@ class Post(models.Model):
     author  = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=1440) #280 * 5 (tamaño Twitter * 5)
 
-class Cuestionario(models.Model):
-    id_cuestionario = models.AutoField(primary_key=True)
-    contenido = models.CharField(max_length = 2000)#definir un maximo a posteriori
-    punctuation = models.IntegerField(default=0) #definir maximo valor a 50
+class Calificaciones(models.Model):
+    id_usuario = models.AutoField(primary_key=True)
+    t1_punct = models.IntegerField(default = 0)#definir un maximo a posteriori
+    t2_punct = models.IntegerField(default = 0)
+    ts_punct1 = models.IntegerField(default = 0)
+    ts_punct2 = models.IntegerField(default = 0) #definir maximo valor a 50
 
 class Pregunta_Cuestionario(models.Model):
-    id_pregunta = models.IntegerField(primary_key=True)
+    id_pregunta = models.IntegerField(primary_key=True, default=0)
     id_cuestionario = models.IntegerField(default=0)
     invertida = models.IntegerField(default=0) #Esta variable la usaremos para saber si la puntuacion del cuestionario esta invertida
     respuesta = models.IntegerField(default=0)
@@ -40,8 +42,10 @@ from django.contrib.auth.models import User
 
 #PARA REFERENCIAR ESTAS VARIABLES EN EL USER HACEMOS    user.calificaciones.t1_punct por ejemplo
 
+'''
 class Calificaciones(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     t1_punct = models.IntegerField(default=0)
     ts_punct1 = models.IntegerField(default=0)
     ts_punct2 = models.IntegerField(default=0)
+    '''
