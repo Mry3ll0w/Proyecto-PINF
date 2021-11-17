@@ -1,7 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 #Las clases deberan tener la primera letra en mayusculas para poder distinguir en caso de usar variables 
+
+'''
 class User(models.Model):
     nickname = models.CharField(max_length=12,primary_key = True)
     mail = models.CharField(max_length= 30,default="")
@@ -9,6 +12,7 @@ class User(models.Model):
     t1_punct = models.IntegerField(default=0)
     t2_punct = models.IntegerField(default=0)
     done_test = models.BooleanField(default=False)
+    '''
 
     
 class Post(models.Model):
@@ -29,3 +33,15 @@ class Pregunta_Cuestionario(models.Model):
 
 class Poll(models.Model):
     value = models.CharField(max_length=20)
+
+#Vamos a ampliar la clase user por defecto
+
+from django.contrib.auth.models import User
+
+#PARA REFERENCIAR ESTAS VARIABLES EN EL USER HACEMOS    user.calificaciones.t1_punct por ejemplo
+
+class Calificaciones(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    t1_punct = models.IntegerField(default=0)
+    ts_punct1 = models.IntegerField(default=0)
+    ts_punct2 = models.IntegerField(default=0)

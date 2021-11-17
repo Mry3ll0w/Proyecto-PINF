@@ -23,11 +23,12 @@
 from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import User
-from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm, RegisterUserForm
+#from .models import User
+#from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm, RegisterUserForm
 from django.db import connections
 from django.forms import inlineformset_factory
-from django.contrib.auth.forms import UserCreationForm
+
+from django.contrib.auth.models import User
 
 from django.contrib.auth import authenticate, login, logout
 
@@ -51,11 +52,12 @@ def post_prueba(request):
 
                 #Ahora vamos a obtener la data limpia del form, [usamos form.cleaned_data.get]esto se puede hacer de muchas formas pero esta me parece la mas clara
 
-        mail = request.POST['mail']
-        nickname = request.POST['nickname']
+        email = request.POST['mail']
+        username = request.POST['nickname']
         password = request.POST['password']
 
-        new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
+        new_user = User.objects.create_user(username = username, password = password, email = email)
+
         new_user.save()
 
         messages.success(request, 'Se ha creado la cuenta')
@@ -74,28 +76,20 @@ def login_prueba(request):
 
          #Tambien se pueden obtener los datos con el request.POST, ambas formas son igualmente validas
 
-        post_nickname = request.POST['nickname']
-        post_password = request.POST['password']
+        username = request.POST['nickname']
+        password = request.POST['password']
 
-        querys = User.objects.all()
-        isRegistered = False
+        user = authenticate(request, username=username, password=password)
 
-            #Vale a ver, django puede hacer el login por la cara, pero eso da una especie de permisos que no nos vienen al cuento
-            #   asi que para nuestro login simplente verificaremos si el usuario esta en la base de datos y obviamente que sea la
-            #   misma password.
+        if user is not None:
 
-        for i in querys:
-
-            if i.nickname == post_nickname and i.password == post_password:
-
-                    isRegistered = True
-
-        if isRegistered == True:
+            login(request, user)
 
             return redirect('http://127.0.0.1:8000/app/home/')
 
         else:
-            return redirect('http://127.0.0.1:8000/prueba_login/')
+
+            return redirect('http://127.0.0.1:8000/app/prueba_login/')
 
     return render(request, 'prueba_login.html') 
  
@@ -301,6 +295,13 @@ def index(request):
 
 
 def home(request):
+
+    #ASI SE OBTIENE EL USERNAME DEL TIO QUE HA ACCEDIDO A ESTA REQUEST
+
+    username = request.user.username
+
+    print (username)
+
     return render(request, 'home.html')
 
 def foro(request):
