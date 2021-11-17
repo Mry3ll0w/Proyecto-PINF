@@ -264,14 +264,23 @@ def test1(request):
         res +=[res1+ res2+ res3+ res4+ res5+ res6+res7+res8+res9+res10+res11+res12+res13+res14+res15+res16+res17+res18]
         
         total_puntos = 0 #Almacenara el total de puntos obtenidos
+
         for i in res: #Recorremos el dict para meter los ptos 
+
             if i == 'option1':
+
                 total_puntos+=1
+
             elif i == 'option2':
+
                 total_puntos+=2
+
             elif i == 'option3':
+
                 total_puntos+=3
+
             elif i == 'option4':
+
                 total_puntos+=4
         
         print("El numero de puntos es: ",total_puntos)
@@ -290,12 +299,19 @@ def test1(request):
         #REVISAR LAS COMPROBACIONES, NO DA LO QUE DEBERIA
 
         if total_puntos <=35 :
+
             consejo_final = {'respuesta':'Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima'}
+
         elif 36 <= total_puntos <= 47: 
+
             consejo_final = {'respuesta':'Baja Autoestima'}
+
         elif 48 <= total_puntos <=59:
+
             consejo_final = {'respuesta':'En camino a alcanzar una alta autoestima'}
+
         elif 60 <= total_puntos <= 72:
+
             consejo_final = {'respuesta':'Alta autoestima'}
 
         context = {'consejo':''}
@@ -312,7 +328,9 @@ def test1(request):
 
 #---------------------------------------------------Test Satisfaccion -----------------------------------------------------------
 def testsatisfaction(request):
+
     context = {'total_puntos': ''}
+
     if request.method == 'POST': #Comprobamos si el metodo es correcto
         
         #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
@@ -324,17 +342,29 @@ def testsatisfaction(request):
         res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
         res +=[p20]
         res +=[p21]
+
         print (res)
+
         total_puntos = 0 #Almacenara el total de puntos obtenidos
+
         for i in res: #Recorremos el dict para meter los ptos 
+
             if i == 'option1':
+
                 total_puntos+=1
+
             elif i == 'option2':
+
                 total_puntos+=2
+
             elif i == 'option3':
+
                 total_puntos+=3
+
             elif i == 'option4':
+
                 total_puntos+=4
+
         print("El numero de puntos es: ",total_puntos) # FALTA INSERTAR EN USER LA SATISFACCION
         
         return redirect('http://127.0.0.1:8000/app/perfil/')      
@@ -357,6 +387,7 @@ def home(request):
     return render(request, 'home.html')
 
 def foro(request):
+    
     return render(request, 'foro.html')
 
 
