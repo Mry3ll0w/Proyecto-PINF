@@ -60,7 +60,7 @@ def post_prueba(request):
 
         new_user.save()
 
-        calificiones_usuario = Calificaciones(id_usuario = request.user.id)
+        calificiones_usuario = Calificaciones(id_usuario = new_user.id)
 
         calificiones_usuario.save()
 
@@ -132,6 +132,62 @@ def prueba_poll(request): #OJO este es un endpoint de prueba para hacer otro (NO
             print (" entre 5 y 8")
 
     return render(request, 'prueba_poll.html')
+
+#----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------
+
+def registro(request):
+
+    if request.method == 'POST':
+    
+            #Siempre que trabajemos con un formulario, tenemos que comprobar que sea valido, esto se hace con la instruccion form.is_vail()
+
+            #Con esto nos aseguramos de que la primera vez que se acceda a la url no busque un formulario lleno
+
+                #Ahora vamos a obtener la data limpia del form, [usamos form.cleaned_data.get]esto se puede hacer de muchas formas pero esta me parece la mas clara
+
+        email = request.POST['mail']
+        username = request.POST['nickname']
+        password = request.POST['password']
+
+        new_user = User.objects.create_user(username = username, password = password, email = email)
+
+        new_user.save()
+
+        calificiones_usuario = Calificaciones(id_usuario = new_user.id)
+
+        calificiones_usuario.save()
+
+        messages.success(request, 'Se ha creado la cuenta')
+        return redirect('http://127.0.0.1:8000/app/index/')
+
+    return render(request, 'registro.html')
+
+#----------------------------------------------------LOGIN FINAL-----------------------------------------------------------------------------
+def index(request):
+
+    if request.method == 'POST':
+    
+        #Hay que verificar que el formato es valido, sino no se puede usar el cleaned.data
+
+
+         #Tambien se pueden obtener los datos con el request.POST, ambas formas son igualmente validas
+
+        username = request.POST['nickname']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+
+            login(request, user)
+
+            return redirect('http://127.0.0.1:8000/app/home/')
+
+        else:
+
+            return redirect('http://127.0.0.1:8000/app/index/')
+
+    return render(request, 'index.html')
 
 # --------------------------------------------------- POLL_PARSER -------------------------------------------------------------------------- #
 def test(request): #Endpoint para la redireccion de los test
@@ -245,55 +301,6 @@ def testsatisfaction(request):
        
     return render(request,'test_satisfaccion.html')
 
-#----------------------------------------------------REGISTRO FINAL-------------------------------------------------------------------------------------------------
-
-
-
-def registro(request):
-
-    if request.method == 'POST':
-
-        mail = request.POST['mail']
-        nickname = request.POST['nickname']
-        password = request.POST['password']
-        
-
-        new_user = User(nickname = nickname, mail = mail, password = password, t1_punct = 0, t2_punct = 0, done_test= False)
-        new_user.save()
-
-        messages.success(request, 'Se ha creado la cuenta')
-        return redirect('http://127.0.0.1:8000/app/index/')
-        
-
-    return render(request, 'registro.html') 
-
-#----------------------------------------------------LOGIN FINAL-----------------------------------------------------------------------------
-def index(request):
-
-    if request.method == 'POST':
-
-        nickname = request.POST['nickname']
-        password = request.POST['password']
-
-        querys = User.objects.all()
-        isRegistered = False
-
-        for i in querys:
-
-            if i.nickname == nickname and i.password == password:
-
-                isRegistered = True
-
-        if isRegistered == True:
-
-            return redirect('http://127.0.0.1:8000/app/home/')
-
-        else:
-            return redirect('http://127.0.0.1:8000/app/index/')        
-
-
-
-    return render(request, 'index.html')
 #-----------------------------------------------Views por implementar------------------------------------------------------------------------------
 
 
@@ -313,9 +320,15 @@ def foro(request):
 
 
 def perfil(request):
+
     return render(request, 'perfil.html')
 
 def test(request):
+
+    username = request.user.username
+
+    print (username)
+
     return render(request, 'test.html')
 
 
