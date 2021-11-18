@@ -190,7 +190,7 @@ def registro(request):
         username = request.POST['nickname']
         password = request.POST['password']
 
-        new_user = User.objects.create_user(username = username, password = password, email = email)
+        new_user = User.objects.create_user(username = username, password = password, email = '')
 
         new_user.save()
 
