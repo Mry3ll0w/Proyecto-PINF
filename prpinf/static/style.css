@@ -90,6 +90,10 @@ input[type=checkbox]{
   display: none;
 }
 
+input[type=raidio]{
+  display: block;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
