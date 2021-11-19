@@ -85,9 +85,11 @@ left: 50%;
 #perfil:checked ~ nav .slider{
 left: 75%;
 }
-input[type=radio]{
+
+.cabecera{
   display: none;
 }
+
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -118,7 +120,7 @@ input[type=radio]{
   text-align: center; 
 }
 
-}
+
 
 .abajo{
   height: 120px; 
