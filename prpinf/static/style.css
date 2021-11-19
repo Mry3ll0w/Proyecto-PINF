@@ -86,9 +86,6 @@ left: 50%;
 left: 75%;
 }
 
-input[type="checkbox"]{
-  display: none;
-}
 
 .bd-placeholder-img {
   font-size: 1.125rem;

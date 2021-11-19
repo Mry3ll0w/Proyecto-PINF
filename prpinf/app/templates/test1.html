@@ -5,17 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Test generico</title>
-    <link rel="stylesheet" href="../../static/style.css">
-    <link href="../../static/test-generico.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="{% static 'test-generico.css' %}" rel="stylesheet">
 </head>
 <header>
     <div class="container">
-      <input type="checkbox" name="s" id="home">
+      <input type="radio" style="display: none;" name="s" id="home">
   
-      <input type="checkbox" name="s" id="test" checked>
-      <input type="checkbox" name="s" id="foro">
+      <input type="radio" style="display: none;" name="s" id="test" checked>
+      <input type="radio" style="display: none;" name="s" id="foro">
       <!--<input type="radio" name="s" id="help">-->
-      <input type="checkbox" name="s" id="perfil">
+      <input type="radio" style="display: none;" name="s" id="perfil">
       <nav>
   
         <div class="slider"></div>
@@ -58,7 +58,7 @@
 
             <!-- Cuidado con los  -->
              <div>
-             <label><input type="radio" name="poll1" value="option1" >Muy en desacuerdo</label>
+             <label><input type="radio"  name="poll1" value="option1" >Muy en desacuerdo</label>
               <br>
               <label><input type="radio" name="poll1" value="option2" >En desacuerdo</label>
               <br>
