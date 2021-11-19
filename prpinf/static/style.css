@@ -86,10 +86,9 @@ left: 50%;
 left: 75%;
 }
 
-.cabecera{
+input[type=checkbox]{
   display: none;
 }
-
 
 .bd-placeholder-img {
   font-size: 1.125rem;
