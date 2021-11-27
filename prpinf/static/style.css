@@ -85,8 +85,13 @@ left: 50%;
 #perfil:checked ~ nav .slider{
 left: 75%;
 }
-input[type=radio]{
+
+input[type=checkbox]{
   display: none;
+}
+
+input[type=raidio]{
+  display: block;
 }
 
 .bd-placeholder-img {
@@ -118,7 +123,7 @@ input[type=radio]{
   text-align: center; 
 }
 
-}
+
 
 .abajo{
   height: 120px; 
