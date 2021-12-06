@@ -11,7 +11,7 @@ def foro(request):
             print(i.author)
             print(i.content)
         
-        return render(request,'foro.html')
+        return render(request,'foro.html',{'db':posts})#le pasamos la base de datos en el context para que la muestre
 
 def create_post(request):
     if request.method == 'POST':

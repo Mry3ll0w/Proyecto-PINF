@@ -1,5 +1,16 @@
 <html>
 	<title>Foro</title>
 
-	<body>BIENVENIDO AL FORO</body>
-</html>
+	<body>
+		<h1>BIENVENIDO AL FORO</h1>
+		<br><br>
+		{% for i in db %}
+		<br>Autor del post: {{ i.author }}
+		<br> Contenido:
+		<p>{{i.content}}</p>
+		<br>
+		{% endfor %}
+	</body>
+	
+
+	</html>
