@@ -32,9 +32,13 @@ from django.contrib.auth.models import User
 
 from django.contrib.auth import authenticate, login, logout
 
+from django.contrib.auth.password_validation import validate_password 
+
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
+
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -56,16 +60,22 @@ def post_prueba(request):
         username = request.POST['nickname']
         password = request.POST['password']
 
-        new_user = User.objects.create_user(username = username, password = password, email ='')
+        if validate_password(password) is None:
 
-        new_user.save()
+            new_user = User.objects.create_user(username = username, password = password, email = email)
 
-        calificiones_usuario = Calificaciones(id_usuario = new_user.id)
+            new_user.save()
 
-        calificiones_usuario.save()
+            calificiones_usuario = Calificaciones(id_usuario = new_user.id)
 
-        messages.success(request, 'Se ha creado la cuenta')
-        return redirect('http://161.35.37.208:8000/app/prueba_login/')
+            calificiones_usuario.save()
+
+            messages.success(request, 'Se ha creado la cuenta')
+            return redirect('http://161.35.37.208:8000/app/prueba_login/')
+
+        else:
+
+            return render(request, 'prueba_post_small.html')
 
     return render(request, 'prueba_post.html') 
 
@@ -166,6 +176,13 @@ def prueba_valor(request):
         return render(request, 'prueba_valor_solucion.html', context)
 
     return render(request, 'prueba_valor.html')
+
+
+#------------------------------------PRUEBA DE ENVIO DE TOKEN INTRODUCIENDO CORREITO--------------------
+
+def token_prueba(request):
+
+    return render(request, 'token_prueba.html')
 
 
 #-----------------------------------------------------------------------------------------------------------------------
