@@ -114,32 +114,31 @@ input[type=raidio]{
   
 }
 .arriba{
-  height: 525px;
+  height: 550px;
   display: flex;
   text-align: center;  
 }
 .arriba_izq{
-  height: 525px;
+  height: 550px;
   text-align: center; 
 }
 
 
 
 .abajo{
-  height: 120px; 
- 
+  height: 175px; 
+  background-color:#CDF2CA;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+   
 }
 .letra_pequeña{
   text-align: center;
   font-size: 12px;
   text-shadow: 1px 1px;
 }
-.texto_abajo{
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color:#CDF2CA ;
-}
+
 
 .titulo{
   text-align: center;
@@ -153,7 +152,16 @@ input[type=raidio]{
 .separador{
   background-color: black;
   font-size: 2px;
+  margin-bottom: 0px;
 }
 .prueba{
   margin-left: 5px;
+}
+.gris{
+  color: gray;
+}
+.texto_abajo{
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
