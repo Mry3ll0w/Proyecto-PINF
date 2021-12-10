@@ -2,12 +2,28 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Post
 from django.contrib.auth.models import User
+from collections import Counter
 
 #Se encarga de mostrar el foro
 def foro(request):
     if request.method == 'GET':
 
-        posts = Post.objects.all()#Metemos todas las querys de los post en la DB en post
+        #posts = sorted(Post.objects.all(),reverse=True )#Metemos todas las querys de los post en la DB en post
+        posts = Post.objects.all()#Catch de todas las querys de la DB
+        
+        #1) obtenemos todos los topics
+        topics = []
+        for i in posts:
+            if i.topic not in topics:
+                topics.append(i.topic)
+
+        #2) Filtramos cada uno de los posts por topic
+        #2.1 Creamos una lista de listas ==> lista[topic1[.....],topic2[...]]
+        list_by_topic=list(zip(Counter(topics).keys(), Counter(topics).values()))
+
+        for i in list_by_topic:
+            print (i)
+
 
         return render(request,'foro.html',{'db':posts})#le pasamos la base de datos en el context para que la muestre
     
@@ -42,7 +58,7 @@ def create_post(request):
 
         else:#Se encuentra==> lo creo
             
-            p = Post(author=User.objects.get(username=input['author']), content=input['content'])
+            p = Post(author=User.objects.get(username=input['author']), content=input['content'], topic=input['topic'])
         
             p.save()#Se guardan los datos y se redirige al home donde se ven los post
             
