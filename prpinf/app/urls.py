@@ -17,6 +17,6 @@ urlpatterns = [
     path('prueba_valor/', views.prueba_valor),
     path('poll/satisfaccion/', views.testsatisfaction),
     path('token_prueba/', views.token_prueba),
-    path('verify_prueba/', views.verify_prueba),
+    #path('verify_prueba/', views.verify_prueba),
 
 ]
