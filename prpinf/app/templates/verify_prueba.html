@@ -1,14 +1,14 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'headers.css' %}">
-<h3 >ENVIO DE TOKEN</h3>
+<h3 >VERIFICACION</h3>
 <h1>
 <img src="{% static 'LOGO.png' %}" alt="My image"></h1>
 <hr>
-<h2>¿HA OLVIDADO SU CONTRASEÑA?</h2>
+<h2>INTRODUZCA EL NUMERO QUE SE LE HA ENVIADO</h2>
 <form action="" method="post">{% csrf_token %}
-    <h4>Correo Electronico</h4>
+    <h4>NUMERO</h4>
     <h1>    
-        <input type="text" name="mail">
+        <input type="text" name="token">
     </h1>
     <input type="submit">
 

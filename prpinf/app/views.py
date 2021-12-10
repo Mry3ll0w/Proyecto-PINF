@@ -40,6 +40,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.core.mail import send_mail
 
+import random
+
 
 # Create your views here.
 
@@ -182,9 +184,25 @@ def prueba_valor(request):
 
 def token_prueba(request):
 
+    if request.method == 'POST':
+
+        mail = request.POST['mail']
+
+        token_verify = random.randint(100000, 900000)
+
+        send_mail(token_verify, 'Verificacion de cuenta', mail)
+
+        return redirect('http://161.35.37.208:8000/app/verify_prueba/')
+
     return render(request, 'token_prueba.html')
 
+def verify_prueba(request):
 
+    if request.method == 'POST':
+
+        token 
+
+    return render (request, 'verify_prueba.html')
 #-----------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------                    
 # ---------------------------------------------------VIEWS FINALES------------------------------------------------------
