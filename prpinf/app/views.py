@@ -26,19 +26,21 @@ from django.http import HttpResponse
 from .models import Calificaciones
 #from .forms import UserFormRegistro, UserFormLogin, LoginForm, CreatePollForm, RegisterUserForm
 from django.db import connections
-from django.forms import inlineformset_factory
+from django.forms import ValidationError
 
 from django.contrib.auth.models import User
 
 from django.contrib.auth import authenticate, login, logout
 
-from django.contrib.auth.password_validation import validate_password 
+from django.contrib.auth.password_validation import validate_password
 
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
 from django.core.mail import send_mail
+
+import random
 
 
 # Create your views here.
@@ -60,22 +62,40 @@ def post_prueba(request):
         username = request.POST['nickname']
         password = request.POST['password']
 
-        if validate_password(password) is None:
+        try:
 
-            new_user = User.objects.create_user(username = username, password = password, email = email)
+            if validate_password(password) is None:
 
-            new_user.save()
+            #Esta tirando error de validacion si introducimos contraseñas malas, lo cual esta bien pero no queremos
+            #que salga el debugger cuando la pagina este activada. La cosa es la siguiente, ¿como evitamos que salga
+            # error de validacion para que nos salga la pagina de error de contraseña?
 
-            calificiones_usuario = Calificaciones(id_usuario = new_user.id)
+                new_user = User.objects.create_user(username = username, password = password, email = email)
 
-            calificiones_usuario.save()
+                new_user.save()
 
-            messages.success(request, 'Se ha creado la cuenta')
-            return redirect('http://161.35.37.208:8000/app/prueba_login/')
+                calificiones_usuario = Calificaciones(id_usuario = new_user.id)
 
-        else:
+                calificiones_usuario.save()
 
-            return render(request, 'prueba_post_small.html')
+                messages.success(request, 'Se ha creado la cuenta')
+                return redirect('http://127.0.0.1:8000/app/prueba_login/')
+
+        except ValidationError == 'This password is too short. It must contain at least 8 characters.':#['This password is too short. It must contain at least 8 characters.']:
+
+            context = {'password_mal':''}
+
+            errors = {'corta': 'Contraseña insegura: Introduzca una contraseña mas larga',
+            'larga': 'Contraseña insegura: Introduzca una contraseña mas larga',
+            'numerica': 'Contraseña insegura: Introduzca una contraseña con letras',
+            'comun': 'Contraseña insegura: Contraseña muy comun, introduzca una mas compleja'}
+
+            context['password_mal'] = errors['corta']
+            #context['password_mal'] = errors['larga']
+            #context['password_mal'] = errors['numerica']
+            #context['password_mal'] = errors['comun']
+
+            return render(request, 'prueba_post.html', context)
 
     return render(request, 'prueba_post.html') 
 
@@ -182,9 +202,25 @@ def prueba_valor(request):
 
 def token_prueba(request):
 
+    if request.method == 'POST':
+
+        mail = request.POST['mail']
+
+        token_verify = random.randint(100000, 900000)
+
+        send_mail(token_verify, 'Verificacion de cuenta', mail)
+
+        return redirect('http://161.35.37.208:8000/app/verify_prueba/')
+
     return render(request, 'token_prueba.html')
 
+# def verify_prueba(request):
 
+#     if request.method == 'POST':
+
+#         token 
+
+#     return render (request, 'verify_prueba.html')
 #-----------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------                    
 # ---------------------------------------------------VIEWS FINALES------------------------------------------------------

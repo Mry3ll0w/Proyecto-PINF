@@ -19,11 +19,11 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F9F3DF; 
+  background-color: #EDD2F3; 
 }
 
 body{
-  background-color: #F9F3DF; 
+  background-color: #EDD2F3; 
 }
 
 nav{
@@ -33,11 +33,11 @@ nav{
   display: flex;
   text-align: center;
   position: relative;
-  background: #fff;
+  background: #84DFFF;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 a{
-  color: #F78812;
+  color:black;
   text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ nav label{
   font-weight: 400;
   border-radius: 5px;
   margin: 0 5px;
-  color: #F78812;
+  color: #516BEB;
   position: relative;
   z-index: 1;
   cursor: pointer;
@@ -63,7 +63,7 @@ nav .slider{
   position: absolute;
   height: 100%;
   width: 25%;
-  background: #CDF2CA;
+  background: #516BEB;
   left: 0;
   top: 0;
   border-radius: 5px;
@@ -127,7 +127,7 @@ input[type=raidio]{
 
 .abajo{
   height: 175px; 
-  background-color:#CDF2CA;
+  background-color:#FFFCDC;
   padding-top: 10px;
   padding-left: 5px;
   padding-right: 5px;
