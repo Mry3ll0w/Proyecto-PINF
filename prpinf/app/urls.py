@@ -18,5 +18,6 @@ urlpatterns = [
     path('poll/satisfaccion/', views.testsatisfaction),
     path('token_prueba/', views.token_prueba),
     #path('verify_prueba/', views.verify_prueba),
+    path('pruebaad/', views.pruebaad),
 
 ]
