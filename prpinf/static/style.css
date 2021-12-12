@@ -19,11 +19,11 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #EDD2F3; 
+  background-color: white; 
 }
 
 body{
-  background-color: #EDD2F3; 
+  background-color: white; 
 }
 
 nav{
@@ -127,7 +127,7 @@ input[type=raidio]{
 
 .abajo{
   height: 175px; 
-  background-color:#FFFCDC;
+  background-color:#FFAA33	;
   padding-top: 10px;
   padding-left: 5px;
   padding-right: 5px;
