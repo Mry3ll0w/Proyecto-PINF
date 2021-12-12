@@ -2,15 +2,16 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Post
 from django.contrib.auth.models import User
-from collections import Counter
+
 
 #Se encarga de mostrar el foro
 def foro(request):
     if request.method == 'GET':
 
-        #posts = sorted(Post.objects.all(),reverse=True )#Metemos todas las querys de los post en la DB en post
-        posts = Post.objects.all()#Catch de todas las querys de la DB
         
+        posts = Post.objects.all()#Catch de todas las querys de la DB
+        parser_list = []
+        final_list = []
         #1) obtenemos todos los topics
         topics = []
         for i in posts:
@@ -18,11 +19,13 @@ def foro(request):
                 topics.append(i.topic)
 
         #2) Filtramos cada uno de los posts por topic
-        #2.1 Creamos una lista de listas ==> lista[topic1[.....],topic2[...]]
-        list_by_topic=list(zip(Counter(topics).keys(), Counter(topics).values()))
+        for i in topics:          
+            #Los ordenamos por fecha y los metemos en la lista temporal
+            final_list.append(sorted(Post.objects.filter(topic=i),reverse=True))
+            #para obtener multiples querys se usa el filter, el sorted los ordena con la sobrecarga de la fecha
+            #reverse indica que  se ordena de mas antiguo a mas nuevo
 
-        for i in list_by_topic:
-            print (i)
+        
 
 
         return render(request,'foro.html',{'db':posts})#le pasamos la base de datos en el context para que la muestre
