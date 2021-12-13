@@ -8,11 +8,8 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'profile-card.css' %}">
     
-
-    <!-- Bootstrap core CSS -->
-<link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -34,7 +31,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #ffc5c8;
+        background-color: #EDD2F3;
       }
     </style>
 
@@ -44,10 +41,14 @@
   </head>
   <header>
     <div class="container">
-      <img class="mb-4" src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="25%" height="25%"style="background-color: #ffc5c8;">
+     <img src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="100%" height="100%" style="background-color: #EDD2F3;">
     </div>
+    
+
   </header>
-  <body class="text-center">   
+  <body style="background-color: #EDD2F3;">  
+    <br><br>   
+    <!--
     
 <main class="form-signin">
   <form action="" method="post">{% csrf_token %}
@@ -55,7 +56,6 @@
 
     <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
 
-      <!--BIBLIA-->
       <h4>Correo Electronico (Opcional)</h4>
       <h5>
           <input type="email" name="mail" placeholder="mail@mail.com">
@@ -63,7 +63,7 @@
       </h5>
       <h4>Nombre de usuario</h4>
       <h5>
-          <input type="text" name="nickname"> <!--SE VE MUY CHICO-->
+          <input type="text" name="nickname">
           
       </h5>
       <h4>Contraseña</h4>
@@ -77,15 +77,52 @@
 
   
   </form>
-  <form>
-    <br>
-    <br>
-  
-    <p class="mt-5 mb-3 text-muted">&copy; 2021–2021</p>
-  </form>
-</main>
-
-
+  -->
+  <center>
+    <div class="card">
+    <form action="" method="post">{% csrf_token %}
+      
     
+      <h1 style="text-align: center;">REGISTRO</h1>
+      <br>
+    
+        <h4 style="text-align: center;">Correo Electronico (Opcional)</h4>
+        <br>
+        
+        <h5>
+    
+          <input type="email" name="mail" placeholder="mail@mail.com">
+            
+        </h5>
+        
+        <br>
+        <h4 style="text-align: center;">Nombre de usuario</h4>
+        <br>
+       
+        <h5>
+    
+          <input type="text" name="nickname">
+            
+        </h5>  
+
+        <br>
+        <h4>Contraseña</h4>
+        <br>
+
+        <h5>{{password_mal}}</h5>
+        <h5>
+          <input type="password" name="password">
+          
+        </h5>
+        
+      <input type = "submit" style="text-align:center;">
+      
+      <textarea style="opacity: 0%; width: 2px;" >a</textarea>
+     
+      <br><br>
+      <p class="mt-5 mb-3 text-muted" style="text-align:center;">&copy; 2021–2021</p>
+    </form>
+    </div>
+    </center>
   </body>
 </html>
