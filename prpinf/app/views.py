@@ -79,13 +79,13 @@ def post_prueba(request):
                 calificiones_usuario.save()
 
                 messages.success(request, 'Se ha creado la cuenta')
-                return redirect('http://127.0.0.1:8000/app/prueba_login/')
+                return redirect('http://127.0.0.1:8000/prueba_login/')
 
-        except ValidationError == 'This password is too short. It must contain at least 8 characters.':#['This password is too short. It must contain at least 8 characters.']:
+        except ValidationError:#['This password is too short. It must contain at least 8 characters.']:
 
             context = {'password_mal':''}
 
-            errors = {'corta': 'Contraseña insegura: Introduzca una contraseña mas larga',
+            errors = {'corta': 'Contraseña insegura',
             'larga': 'Contraseña insegura: Introduzca una contraseña mas larga',
             'numerica': 'Contraseña insegura: Introduzca una contraseña con letras',
             'comun': 'Contraseña insegura: Contraseña muy comun, introduzca una mas compleja'}
@@ -119,11 +119,11 @@ def login_prueba(request):
 
             login(request, user)
 
-            return redirect('http://161.35.37.208:8000/app/home/')
+            return redirect('http://127.0.0.1:8000/home/')
 
         else:
 
-            return redirect('http://161.35.37.208:8000/app/prueba_login/')
+            return redirect('http://127.0.0.1:8000/prueba_login/')
 
     return render(request, 'prueba_login.html') 
  
@@ -210,7 +210,7 @@ def token_prueba(request):
 
         send_mail(token_verify, 'Verificacion de cuenta', mail)
 
-        return redirect('http://161.35.37.208:8000/app/verify_prueba/')
+        return redirect('http://127.0.0.1:8000/verify_prueba/')
 
     return render(request, 'token_prueba.html')
 
@@ -237,7 +237,7 @@ def pruebaad(request):
 def registro(request):
 
     if request.method == 'POST':
-    
+
             #Siempre que trabajemos con un formulario, tenemos que comprobar que sea valido, esto se hace con la instruccion form.is_vail()
 
             #Con esto nos aseguramos de que la primera vez que se acceda a la url no busque un formulario lleno
@@ -248,20 +248,45 @@ def registro(request):
         username = request.POST['nickname']
         password = request.POST['password']
 
-        new_user = User.objects.create_user(username = username, password = password, email = '')
+        try:
 
-        new_user.save()
+            if validate_password(password) is None:
 
-        calificiones_usuario = Calificaciones(id_usuario = new_user.id)
+            #Esta tirando error de validacion si introducimos contraseñas malas, lo cual esta bien pero no queremos
+            #que salga el debugger cuando la pagina este activada. La cosa es la siguiente, ¿como evitamos que salga
+            # error de validacion para que nos salga la pagina de error de contraseña?
 
-        calificiones_usuario.save()
+                new_user = User.objects.create_user(username = username, password = password, email = email)
 
-        messages.success(request, 'Se ha creado la cuenta')
-        return redirect('http://161.35.37.208:8000/app/index/')
+                new_user.save()
 
-    return render(request, 'registro.html')
+                calificiones_usuario = Calificaciones(id_usuario = new_user.id)
+
+                calificiones_usuario.save()
+
+                messages.success(request, 'Se ha creado la cuenta')
+                return redirect('http://127.0.0.1:8000/index/')
+
+        except ValidationError:#['This password is too short. It must contain at least 8 characters.']:
+
+            context = {'password_mal':''}
+
+            errors = {'corta': 'Contraseña insegura',
+            'larga': 'Contraseña insegura: Introduzca una contraseña mas larga',
+            'numerica': 'Contraseña insegura: Introduzca una contraseña con letras',
+            'comun': 'Contraseña insegura: Contraseña muy comun, introduzca una mas compleja'}
+
+            context['password_mal'] = errors['corta']
+            #context['password_mal'] = errors['larga']
+            #context['password_mal'] = errors['numerica']
+            #context['password_mal'] = errors['comun']
+
+            return render(request, 'registro.html', context)
+
+    return render(request, 'registro.html') 
 
 #----------------------------------------------------LOGIN FINAL-----------------------------------------------------------------------------
+
 def index(request):
 
     if request.method == 'POST':
@@ -280,11 +305,11 @@ def index(request):
 
             login(request, user)
 
-            return redirect('http://161.35.37.208:8000/app/home/')
+            return redirect('http://127.0.0.1:8000/home/')
 
         else:
 
-            return redirect('http://161.35.37.208:8000/app/index/')
+            return redirect('http://127.0.0.1:8000/index/')
 
     return render(request, 'index.html')
 
@@ -294,179 +319,187 @@ def test(request): #Endpoint para la redireccion de los test
 #----------------------------------------------------POLL -------------------------------------------------
 
 def test1(request):
-    
-    if request.method == 'POST': #Comprobamos si el metodo es correcto
+
+    if request.user.is_authenticated:
+
+        if request.method == 'POST': #Comprobamos si el metodo es correcto
         
-        #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
+            #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
 
-        # hacemos el catch de los datos que nos llegan del html
-        res1 = request.POST['poll1'] 
-        res2 = request.POST['poll2'] 
-        res3 = request.POST['poll3'] 
-        res4 = request.POST['poll4'] 
-        res5 = request.POST['poll5'] 
-        res6 = request.POST['poll6'] 
-        res7 = request.POST['poll7'] 
-        res8 = request.POST['poll8'] 
-        res9 = request.POST['poll9'] 
-        res10 = request.POST['poll10'] 
-        res11 = request.POST['poll11'] 
-        res12 = request.POST['poll12'] 
-        res13 = request.POST['poll13'] 
-        res14 = request.POST['poll14']
-        res15 = request.POST['poll15']
-        res16 = request.POST['poll16']
-        res17 = request.POST['poll17'] 
-        res18 = request.POST['poll18']
+            # hacemos el catch de los datos que nos llegan del html
+            res1 = request.POST['poll1'] 
+            res2 = request.POST['poll2'] 
+            res3 = request.POST['poll3'] 
+            res4 = request.POST['poll4'] 
+            res5 = request.POST['poll5'] 
+            res6 = request.POST['poll6'] 
+            res7 = request.POST['poll7'] 
+            res8 = request.POST['poll8'] 
+            res9 = request.POST['poll9'] 
+            res10 = request.POST['poll10'] 
+            res11 = request.POST['poll11'] 
+            res12 = request.POST['poll12'] 
+            res13 = request.POST['poll13'] 
+            res14 = request.POST['poll14']
+            res15 = request.POST['poll15']
+            res16 = request.POST['poll16']
+            res17 = request.POST['poll17'] 
+            res18 = request.POST['poll18']
 
-        res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
-        res +=[res1]
-        res +=[res2]
-        res +=[res3]
-        res +=[res4]
-        res +=[res5]
-        res +=[res6]
-        res +=[res7]
-        res +=[res8]
-        res +=[res9]
-        res +=[res10]
-        res +=[res11]
-        res +=[res12]
-        res +=[res13]
-        res +=[res14]
-        res +=[res15]
-        res +=[res16]
-        res +=[res17]
-        res +=[res18]
+            res = [] #Creamos un diccionario donde vamos a almacenar todas las respuestas
+            res +=[res1]
+            res +=[res2]
+            res +=[res3]
+            res +=[res4]
+            res +=[res5]
+            res +=[res6]
+            res +=[res7]
+            res +=[res8]
+            res +=[res9]
+            res +=[res10]
+            res +=[res11]
+            res +=[res12]
+            res +=[res13]
+            res +=[res14]
+            res +=[res15]
+            res +=[res16]
+            res +=[res17]
+            res +=[res18]
         
-        total_puntos = 0 #Almacenara el total de puntos obtenidos
+            total_puntos = 0 #Almacenara el total de puntos obtenidos
 
-        for i in res: #Recorremos el dict para meter los ptos 
+            for i in res: #Recorremos el dict para meter los ptos 
             
-            if i == 'option1':
+                if i == 'option1':
 
-                total_puntos+=1
+                    total_puntos+=1
 
-            elif i == 'option2':
+                elif i == 'option2':
 
-                total_puntos+=2
+                    total_puntos+=2
 
-            elif i == 'option3':
+                elif i == 'option3':
 
-                total_puntos+=3
+                    total_puntos+=3
 
-            elif i == 'option4':
+                elif i == 'option4':
 
-                total_puntos+=4
+                    total_puntos+=4
         
-        print("El numero de puntos es: ",total_puntos)
-        #Una vez obtenidos los puntos le asignamos la valoracion requerida
-        consejo = " " # Almacenara el consejo a insertar (para a posteriori pasarlo a la clase) 
-        '''
-        ------------PUNTUACIONES-----------------
-        Si la puntuacion está entre 
-        18-35 ---> "Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima"
-        36-47 ---> "Baja Autoestima"
-        48-59 ---> "En camino a alcanzar una alta autoestima"
-        60-72 ---> "Alta autoestima" 
-        '''
-        # Miramos en que intervalo esta y metemos el consejo correspondiente
+            print("El numero de puntos es: ",total_puntos)
+            #Una vez obtenidos los puntos le asignamos la valoracion requerida
+            consejo = " " # Almacenara el consejo a insertar (para a posteriori pasarlo a la clase) 
+            '''
+            ------------PUNTUACIONES-----------------
+            Si la puntuacion está entre 
+            18-35 ---> "Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima"
+            36-47 ---> "Baja Autoestima"
+            48-59 ---> "En camino a alcanzar una alta autoestima"
+            60-72 ---> "Alta autoestima" 
+            '''
+            # Miramos en que intervalo esta y metemos el consejo correspondiente
 
-        #REVISAR LAS COMPROBACIONES, NO DA LO QUE DEBERIA
+            #REVISAR LAS COMPROBACIONES, NO DA LO QUE DEBERIA
 
-        if total_puntos <=35 :
+            if total_puntos <=35 :
 
-            consejo_final = {'respuesta':'Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima'}
+                consejo_final = {'respuesta':'Mala autoestima.Te recomiendo ahondar profundamente en aumentar tu autoestima'}
 
-        elif 36 <= total_puntos <= 47: 
+            elif 36 <= total_puntos <= 47: 
 
-            consejo_final = {'respuesta':'Baja Autoestima'}
+                consejo_final = {'respuesta':'Baja Autoestima'}
 
-        elif 48 <= total_puntos <=59:
+            elif 48 <= total_puntos <=59:
 
-            consejo_final = {'respuesta':'En camino a alcanzar una alta autoestima'}
+                consejo_final = {'respuesta':'En camino a alcanzar una alta autoestima'}
 
-        elif 60 <= total_puntos <= 72:
+            elif 60 <= total_puntos <= 72:
 
-            consejo_final = {'respuesta':'Alta autoestima'}
+                consejo_final = {'respuesta':'Alta autoestima'}
 
+            context = {'consejo':''}
+
+            context['consejo'] = consejo_final['respuesta']
+
+            cal = Calificaciones.objects.get(id_usuario = request.user.id)
+
+            cal.t1_punct = total_puntos
+
+            cal.save()
         
-        context = {'consejo':''}
-
-        context['consejo'] = consejo_final['respuesta']
-
-        cal = Calificaciones.objects.get(id_usuario = request.user.id)
-
-        cal.t1_punct = total_puntos
-
-        cal.save()
+            return render(request, 'test1_solucion.html', context)
         
-        return render(request, 'test1_solucion.html', context)
-        
-        #FALTA INSERTAR EL CONSEJO + DONE TEST1 + PUNTUACION EN EL USER LOGEADO
+            #FALTA INSERTAR EL CONSEJO + DONE TEST1 + PUNTUACION EN EL USER LOGEADO
 
-        
-       
-    return render(request,'test1.html')
+        return render(request,'test1.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
         
 #---------------------------------------------------Test Satisfaccion -----------------------------------------------------------
 def testsatisfaction(request):
 
-    context = {'total_puntos': ''}
+    if request.user.is_authenticated:
 
-    if request.method == 'POST': #Comprobamos si el metodo es correcto
-        
-        #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
+        context = {'total_puntos': ''}
 
-        # hacemos el catch de los datos que nos llegan del html
-        p20 = request.POST['poll20'] 
-        p21 = request.POST['poll21']
+        if request.method == 'POST': #Comprobamos si el metodo es correcto
         
-        if p20 == 'option1':
-            
-            punt_1 = 1
-        
-        elif p20 == 'option2':
-            
-            punt_1 = 2
-        
-        elif p20 == 'option3':
-            
-            punt_1 = 3
-        
-        elif p20 == 'option4':
-            
-            punt_1 = 4
+            #FALTA OBTENER EL USUARIO LOGEADO Y ACTUALIZAR LAS PUNTUACIONES DEL MISMO
 
-#Para        
-        if p21 == 'option1':
-            
-            punt_2 = 1
+            # hacemos el catch de los datos que nos llegan del html
+            p20 = request.POST['poll20'] 
+            p21 = request.POST['poll21']
         
-        elif p21 == 'option2':
+            if p20 == 'option1':
             
-            punt_2 = 2
+                punt_1 = 1
         
-        elif p21 == 'option3':
+            elif p20 == 'option2':
             
-            punt_2 = 3
+                punt_1 = 2
         
-        elif p21 == 'option4':
+            elif p20 == 'option3':
             
-            punt_2 = 4
+                punt_1 = 3
+        
+            elif p20 == 'option4':
+            
+                punt_1 = 4
+       
+            if p21 == 'option1':
+            
+                punt_2 = 1
+        
+            elif p21 == 'option2':
+            
+                punt_2 = 2
+        
+            elif p21 == 'option3':
+            
+                punt_2 = 3
+        
+            elif p21 == 'option4':
+            
+                punt_2 = 4
 
 
-        cal = Calificaciones.objects.get(id_usuario = request.user.id)
+            cal = Calificaciones.objects.get(id_usuario = request.user.id)
 
-        cal.ts_punct1 = punt_1 
-        cal.ts_punct2 = punt_2
+            cal.ts_punct1 = punt_1 
+            cal.ts_punct2 = punt_2
 
-        cal.save()
+            cal.save()
         
-        return redirect('http://161.35.37.208:8000/app/perfil/')      
+            return redirect('http://127.0.0.1:8000/perfil/')      
    
        
-    return render(request,'test_satisfaccion.html')
+        return render(request,'test_satisfaccion.html')
+
+    else:
+
+       return redirect('http://127.0.0.1:8000/index/')  
 
 #----------------------------------------------- VIEWS SIMPLES ------------------------------------------------------------------------------
 
@@ -476,28 +509,53 @@ def home(request):
 
     #ASI SE OBTIENE EL USERNAME DEL TIO QUE HA ACCEDIDO A ESTA REQUEST
 
-    username = request.user.username
+    if request.user.is_authenticated:
 
-    print (username)
+        return render(request, 'home.html')
 
-    return render(request, 'home.html')
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
+
+    
 
 def foro(request):
+
+    #Vamos a hacerque se tenga que estar logeado siempre para poder acceder a los recursos de la pagina
+    #Lo conseguiremos con la orden is_authenticated, la cual comprueba si el request user esta logged
     
-    return render(request, 'foro.html')
+    if request.user.is_authenticated:
+
+        user = request.user
+
+        print(user)
+
+        return render(request, 'foro.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
 
 
 def perfil(request):
 
-    return render(request, 'perfil.html')
+    if request.user.is_authenticated:
+
+        return render(request, 'perfil.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
 
 def test(request):
 
-    username = request.user.username
+    if request.user.is_authenticated:
 
-    print (username)
+        return render(request, 'test.html')
 
-    return render(request, 'test.html')
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
 
 
 
