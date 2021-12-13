@@ -9,26 +9,24 @@ def foro(request):
     if request.method == 'GET':
 
         
-        posts = Post.objects.all()#Catch de todas las querys de la DB
-        parser_list = []
-        final_list = []
+        posts = sorted(Post.objects.all())#Catch de todas las querys de la DB
+        
+        
         #1) obtenemos todos los topics
         topics = []
         for i in posts:
             if i.topic not in topics:
                 topics.append(i.topic)
-
-        #2) Filtramos cada uno de los posts por topic
-        for i in topics:          
-            #Los ordenamos por fecha y los metemos en la lista temporal
-            final_list.append(sorted(Post.objects.filter(topic=i),reverse=True))
-            #para obtener multiples querys se usa el filter, el sorted los ordena con la sobrecarga de la fecha
-            #reverse indica que  se ordena de mas antiguo a mas nuevo
-
         
+        final_list = []
+        #2) Creamos una lista de objetos ordenadas por fecha y agrupadas por topic
+        for i in topics: 
 
-
-        return render(request,'foro.html',{'db':posts})#le pasamos la base de datos en el context para que la muestre
+            for j in sorted(Post.objects.all().filter(topic=i)):
+                
+                final_list.append(j)
+        
+        return render(request,'foro.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
     
     else:
         #En caso de tener otro tipo de acceso que no sea el correspondiente se manda un 500 (forbidden operation)
