@@ -558,6 +558,46 @@ def test(request):
         return redirect('http://127.0.0.1:8000/index/')
 
 
+def contenido_interes(request):
+
+    if request.user.is_authenticated:
+
+        return render(request, 'Contenido.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/') 
+
+def change_password(request):
+
+    if request.user.is_authenticated:
+
+        return render(request, 'password.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
+
+def new_password(request):
+
+    if request.user.is_authenticated:
+
+        return render(request, 'newpassword.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
+
+def token(request):
+
+    if request.user.is_authenticated:
+
+        return render(request, 'token.html')
+
+    else:
+
+        return redirect('http://127.0.0.1:8000/index/')
+
 
 
 
