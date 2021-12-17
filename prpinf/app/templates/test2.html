@@ -1,0 +1,204 @@
+<!-- CAMBIAR LOS RADIO POR radio Y ESPACIAR LAS RESPUESTAS -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test generico</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="{% static 'test-generico.css' %}" rel="stylesheet">
+</head>
+<header>
+  <div class="container">
+    <input type="checkbox" style="display: none;" name="s" id="home" >
+
+    <input type="checkbox" style="display: none;" name="s" id="test" checked>
+    <input type="checkbox" style="display: none;" name="s" id="foro">
+    <input type="checkbox" style="display: none;" name="s" id="perfil">
+    <input type="checkbox" style="display: none;" name="s" id="sugerencias">
+    <nav>
+
+      <div class="slider"></div>
+    
+      
+      <label class="home" for="home">
+      <a href="http://127.0.0.1:8000/home">
+      <i class="fas fa-home"></i>Home
+      </a>
+      </label> 
+
+
+      <label class="test" for="test">
+      <a href="http://127.0.0.1:8000/poll/"> 
+      <i class="fas fa-blog"></i>Test
+      </a>
+      </label>
+
+      <label class="foro" for="foro">
+      <a href="http://127.0.0.1:8000/foro">
+      <i class="fas fa-code"></i>Foro
+      </a>
+      </label>
+      <label class="perfil" for="perfil">
+      <a href="http://127.0.0.1:8000/perfil">
+      <i class="fas fa-user"></i>Perfil
+      </a>
+      </label>
+      <label class="sugerencias" for="sugerencias">
+        <a href="http://127.0.0.1:8000/contenido_interes">
+      <i class="fas fa-help"></i>Sugerencias
+      </a>
+      </label>
+    
+    </nav>
+  </div>
+  </header>
+
+<body class = "text">
+    <br>
+    <br>
+      
+          <h2>1. Cuando tengo que decirle algo importante que no corre prisa a una persona cercana, prefiero esperarme a contarselo en persona.</h2>
+
+            <!-- Cuidado con los  -->
+             <div>
+             <label><input type="radio"  style="display: inline-block;" name="poll1">Muy en desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll1">En desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll1">De acuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll1">Muy de acuerdo</label>
+              </div>
+
+          <br>
+          <br>
+          <h2>2. En mis perfiles publico muchas cosas que están de moda, sin preguntarme si realmente me gustan o encajan en mi personalidad.</h2>
+          <div>
+             <label><input type="radio" style="display: inline-block;" name="poll2">Muy en desacuerdo</label>
+             <br>
+              <label><input type="radio" style="display: inline-block;" name="poll2">En desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll2">De acuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll2">Muy de acuerdo</label>
+              <br>
+            </div>
+          <br>
+          <br>
+          <h2>3. Si mis publicaciones en redes sociales no tienen el feedback que me esperaba o me hubiera gustado me siento ignorad@/aislad@.</h2> 
+              
+          <div>
+            <label><input type="radio" style="display: inline-block;" name="poll3">Muy en desacuerdo</label>
+            <br>
+            <label><input type="radio" style="display: inline-block;" name="poll3">En desacuerdo</label>
+            <br>
+            <label><input type="radio" style="display: inline-block;" name="poll3">De acuerdo</label>
+            <br>
+            <label><input type="radio" style="display: inline-block;" name="poll3">Muy de acuerdo</label>
+          
+          </div>
+          <br>
+          <br>
+          <h2>4. Cuando alguien me llama la atención, espero a conocerl@ en persona antes que formarme una opinión en base a sus perfiles en redes sociales.</h2> 
+          <div> 
+          <label><input type="radio" style="display: inline-block;" name="poll4">Muy en desacuerdo</label>
+          <br>
+           <label><input type="radio" style="display: inline-block;" name="poll4">En desacuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll4">De acuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll4">Muy de acuerdo</label>
+           <br>    
+          </div> 
+          <br>     
+          <br>
+          <h2>5. En las quedadas con mis amig@s evito utilizar el movil, a no ser que se trate de un asunto urgente.</h2> 
+                  
+          <div>  
+          <label><input type="radio" style="display: inline-block;" name="poll5">Muy en desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll5">En desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll5">De acuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll5">Muy de acuerdo</label>
+          </div>
+              
+          
+          <br>    
+          <br>
+          <h2>6. En ocasiones, no publico o borro contenido en mis redes sociales por verguenza a lo que puedan pensar los demás.</h2> 
+          <div>       
+          <label><input type="radio" style="display: inline-block;" name="poll6">Muy en desacuerdo</label>
+          <br>
+           <label><input type="radio" style="display: inline-block;" name="poll6">En desacuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll6">De acuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll6">Muy de acuerdo</label>
+           <br>
+          </div> 
+
+          <br>    
+          <br>
+          <h2>7. Siento que usando redes sociales como Whatsapp expreso mejor mis sentimientos y consigo que los demás los comprendan mejor que en persona.</h2> 
+                  
+          <div>   
+          <label><input type="radio" style="display: inline-block;" name="poll7">Muy en desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll7">En desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll7">De acuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll7">Muy de acuerdo</label>
+          </div>
+          
+          <br>    
+          <br>
+          <h2>8. A diario siento impulsos de utilizar el teléfono, sin motivos para hacerlo.</h2> 
+          
+          <div>
+          <label><input type="radio" style="display: inline-block;" name="poll8">Muy en desacuerdo</label>
+          <br>
+           <label><input type="radio" style="display: inline-block;" name="poll8">En desacuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll8">De acuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll8">Muy de acuerdo</label>
+           <br>
+          </div>    
+          <br>
+          <br>
+          <h2>9. No me afectan las opiniones y críticas malintencionadas de personas que no conozco en las redes sociales.</h2> 
+                  
+          <div>  
+          <label><input type="radio" style="display: inline-block;" name="poll9">Muy en desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll9">En desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll9">De acuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll9">Muy de acuerdo</label>
+          </div> 
+             
+          
+          <br> 
+          <br>
+          <h2>10. La persona que muestro en mis redes sociales, soy yo mism@.</h2> 
+          <div>
+          <label><input type="radio" style="display: inline-block;" name="poll10">Muy en desacuerdo</label>
+             <br>
+              <label><input type="radio" style="display: inline-block;" name="poll10">En desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll10">De acuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll10">Muy de acuerdo</label>
+              <br>
+          </div>
+          <br> 
+          <br>    
+        <a href="http://127.0.0.1:8000/poll/test2_solucion"><input type="submit"></a>
+  
+</body>
+  </html>
