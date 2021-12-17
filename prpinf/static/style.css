@@ -85,7 +85,7 @@ left: 40%;
 #perfil:checked ~ nav .slider{
 left: 60%;
 }
-#help:checked ~ nav .slider{
+#sugerencias:checked ~ nav .slider{
   left: 80%;
   }
 
