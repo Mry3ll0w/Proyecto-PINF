@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 #Las clases deberan tener la primera letra en mayusculas para poder distinguir en caso de usar variables 
@@ -16,9 +17,17 @@ class User(models.Model):
 
     
 class Post(models.Model):
+
     post_id = models.AutoField(primary_key=True)
     author  = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.CharField(max_length=1440) #280 * 5 (tamaño Twitter * 5)
+    content = models.CharField(max_length=1440) #280 * 4 (tamaño Twitter * 5)
+    topic = models.CharField(max_length =30, default = 'general' )
+    post_date = models.DateTimeField(default=timezone.now)
+    
+    def __lt__(self, Post ):#Overload del operador < para hacer el sort mediante list.sort()==> O( n* log n )
+        return self.post_date < Post.post_date
+    
+    #topico (se ven todos), sort fecha last 
 
 class Calificaciones(models.Model):
     id_usuario = models.AutoField(primary_key=True)
