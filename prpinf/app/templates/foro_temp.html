@@ -1,0 +1,22 @@
+<html>
+	<title>Foro</title>
+	{%load static%}
+	<link rel="icon" href="icono.ico" type="image/x-icon" />
+
+	<body>
+		<h1>BIENVENIDO AL FORO</h1>
+		<br><br>
+		{% for i in db %} {% comment "db tiene que pasarse con el context " %}{% endcomment %}
+		<br>Autor del post: {{ i.author }} 
+		<br> Contenido:
+		<p>{{i.content}}</p>
+		<br>
+		Fecha de creacion: {{i.post_date}}
+		<br>
+		Topic del foro: {{i.topic}}
+		<br><br>
+		{% endfor %}
+	</body>
+	
+
+</html>

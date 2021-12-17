@@ -19,9 +19,13 @@ class User(models.Model):
 class Post(models.Model):
 
     post_id = models.AutoField(primary_key=True)
+
     author  = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     content = models.CharField(max_length=1440) #280 * 4 (tamaño Twitter * 5)
+    
     topic = models.CharField(max_length =30, default = 'general' )
+    
     post_date = models.DateTimeField(default=timezone.now)
     
     def __lt__(self, Post ):#Overload del operador < para hacer el sort mediante list.sort()==> O( n* log n )

@@ -42,6 +42,8 @@ from django.core.mail import send_mail
 
 import random
 
+from .models import Post #importa el model del foro
+
 
 # Create your views here.
 
@@ -501,6 +503,45 @@ def testsatisfaction(request):
 
        return redirect('http://127.0.0.1:8000/index/')  
 
+
+#----------------------------------------------- VIEW FORO ------------------------------------------------------------------------------
+
+
+
+def foro(request):
+
+
+    if request.user.is_authenticated:
+    
+        if request.method == 'GET':
+
+        
+            posts = sorted(Post.objects.all())#Catch de todas las querys de la DB
+        
+        
+            #1) obtenemos todos los topics
+            topics = []
+            for i in posts:
+                if i.topic not in topics:
+                    topics.append(i.topic)
+        
+            final_list = []
+            #2) Creamos una lista de objetos ordenadas por fecha y agrupadas por topic
+            for i in topics: 
+
+                for j in sorted(Post.objects.all().filter(topic=i)):
+                
+                    final_list.append(j)
+        
+            return render(request,'foro_temp.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
+    
+    else:
+        #En caso de tener otro tipo de acceso que no sea el correspondiente se manda un 500 (forbidden operation)
+        redirect('http://127.0.0.1:8000/index/')  
+
+
+
+
 #----------------------------------------------- VIEWS SIMPLES ------------------------------------------------------------------------------
 
 
@@ -518,23 +559,6 @@ def home(request):
         return redirect('http://127.0.0.1:8000/index/')
 
     
-
-def foro(request):
-
-    #Vamos a hacerque se tenga que estar logeado siempre para poder acceder a los recursos de la pagina
-    #Lo conseguiremos con la orden is_authenticated, la cual comprueba si el request user esta logged
-    
-    if request.user.is_authenticated:
-
-        user = request.user
-
-        print(user)
-
-        return render(request, 'foro.html')
-
-    else:
-
-        return redirect('http://127.0.0.1:8000/index/')
 
 
 def perfil(request):
