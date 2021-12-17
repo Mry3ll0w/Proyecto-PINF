@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/pricing/">
-    <link href="../../static/bootstrap.min.css" rel="stylesheet">   <!--  {% static 'bootstrap.min.css' %} -->
-    <link href="../../static/style.css" rel="stylesheet">   <!-- {% static 'style.css' %} -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">   <!--  {% static 'bootstrap.min.css' %}   ../../static/bootstrap.min.css -->
+    <link href="{% static 'style.css' %} " rel="stylesheet">   <!-- {% static 'style.css' %}     ../../static/style.css -->
     <title>Contenido de Interés</title>
 </head>
 <header>
@@ -63,17 +63,21 @@
           </div>
         </div>
       </section>
-    
-      <div >
-        <div >
+      <br>
+      <h3 class="centrado">Videos:</h3>
+      <br>
+     
     
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
               <div class="card shadow-sm">
-                <img src="" alt="Girl in a jacket" width="525" height="280">
+                <video controls>
+                  <source src="{% static 'prueba.mp4' %}" type="video/mp4"> <!-- ../../static/prueba.mp4 -->
+                </video>
                 
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">El Miedo a la Insignificancia. La Mirada de Elsa</p>
+                 <br>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                     </div>
@@ -83,10 +87,13 @@
             </div>
             <div class="col">
                 <div class="card shadow-sm">
-                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                  <video controls>
+                    <source src="{% static 'prueba2.mp4' %}" type="video/mp4"> <!-- ../../static/prueba2.mp4 -->
+                  </video>
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">La Adolescencia - Inteligencia Emocional. La Mirada de Elsa</p>
+                    <br>                  
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -99,47 +106,8 @@
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                    <p class="card-text">A Mi Yo Adolescente: Generaciones. David Trueba. AprendemosJuntos BBVAzzz</p>
                   
-                  <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="" alt="Girl in a jacket" width="525" height="280">
-                  
-                  <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="" alt="Girl in a jacket" width="525" height="280">
-                  
-                  <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -153,7 +121,8 @@
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">Optimismo. La Mirada de Elsa</p>
+                    
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -166,7 +135,47 @@
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">¿Por qué nos cuesta mirarnos al espejo? | Andrea Vilallonga | TEDxTarragona</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                  
+                  <div class="card-body">
+                    <p class="card-text">¿Qué significa tener una buena autoestima? Silvia Congost, psicóloga</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                  
+                  <div class="card-body">
+                    <p class="card-text">No tengo autoestima - Borja Vilaseca</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                  
+                  <div class="card-body">
+                    <p class="card-text">Como mejorar mi autoestima- los seis pilares de la autoestima- Nathaniel Branden-Resumen animado</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -179,7 +188,7 @@
                 <img src="" alt="Girl in a jacket" width="525" height="280">
                 
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">El punto. Peter H. Reynolds</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                     </div>
@@ -187,12 +196,17 @@
                 </div>
               </div>
             </div>
+          </div>
+            <br>
+            <h3 class="centrado">PELÍCULAS</h3>
+            <br>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
                 <div class="card shadow-sm">
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">En busca de la felicidad </p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -205,7 +219,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">El discurso del Rey </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -218,7 +232,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">El club de los poetas muertos </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -232,7 +246,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">Intocable </p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -245,7 +259,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">Billy Elliot</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -258,7 +272,96 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">El indomable Will Hunting</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <h3 class="centrado">
+                PAGINAS WEB
+                </h3>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <img src="" alt="Girl in a jacket" width="525" height="280">
+                    
+                    <div class="card-body">
+                      <p class="card-text">Psicología y mente</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <img src="" alt="Girl in a jacket" width="525" height="280">
+                    
+                    <div class="card-body">
+                      <p class="card-text">La mente es maravillosa</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                  
+                  <div class="card-body">
+                    <p class="card-text">Coaching para jóvenes</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img src="" alt="Girl in a jacket" width="525" height="280">
+                  
+                  <div class="card-body">
+                    <p class="card-text">Revistas de juventud. INJUVE</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                  <div class="card shadow-sm">
+                    <img src="" alt="Girl in a jacket" width="525" height="280">
+                    
+                    <div class="card-body">
+                      <p class="card-text">Habilidad social</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <h3 class="centrado">LIBROS</h3>
+              <br>
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <img src="" alt="Girl in a jacket" width="525" height="280">
+                    
+                    <div class="card-body">
+                      <p class="card-text">Ni alta, ni baja, construye auténtica autoestima (Rubén Camacho)</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -272,7 +375,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">Aumenta tu autoestima: las 10 claves que necesitas para cambiar tu vida (Sara Navarrete)</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -285,46 +388,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="" alt="Girl in a jacket" width="525" height="280">
-                  
-                  <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <img src="" alt="Girl in a jacket" width="525" height="280">
-                  
-                  <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                  <div class="card shadow-sm">
-                    <img src="" alt="Girl in a jacket" width="525" height="280">
-                    
-                    <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">. Los seis pilares de la autoestima (Nathaniel Branden)</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -337,7 +401,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">Ámate a ti mismo como si tu vida dependiera de ello (Kamal Ravikant)</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -351,7 +415,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">40 reflexiones para despertar tu autoestima (Feli García)</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -364,47 +428,7 @@
                     <img src="" alt="Girl in a jacket" width="525" height="280">
                     
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img src="" alt="Girl in a jacket" width="525" height="280">
-                    
-                    <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img src="" alt="Girl in a jacket" width="525" height="280">
-                    
-                    <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img src="" alt="Girl in a jacket" width="525" height="280">
-                    
-                    <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">Autoestima: Evaluación y Mejora (Matthew Mckay, Patrick Fanning)</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                         </div>
@@ -417,7 +441,7 @@
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">Los dones de la imperfección (Brené Brown)</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -430,7 +454,7 @@
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">Tú vales más de lo que piensas: Cree en ti y despierta tu autoestima (Matthew McKay, Patrick Fanning, Carole Honeychurch y Catharine Sutker)</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -443,7 +467,7 @@
                   <img src="" alt="Girl in a jacket" width="525" height="280">
                   
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">Autoestima en 10 días (David Burns)</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                       </div>
@@ -466,7 +490,6 @@
             </div>
           </div>
         </div>
-      </div>
     
     </main>
     
