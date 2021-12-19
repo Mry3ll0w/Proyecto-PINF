@@ -540,9 +540,26 @@ def foro(request):
         redirect('http://127.0.0.1:8000/index/')  
 
 
+#----------------------------------------------- VIEW PARA TEST2  ------------------------------------------------------------------------------
+
+#/poll/test2
+def test2(request):
+    
+    if request.user.is_authenticated:
+        return render(request, 'test2.html')
+    else:
+        redirect('http://127.0.0.1:8000/index/')#Si no hay user logeado pal home     
+
+def test2_sol(request):
+    if request.user.is_authenticated:
+        return render(request, 'test2_solucion.html')
+    else:
+        redirect('http://127.0.0.1:8000/index/')#Si no hay user logeado pal home     
 
 
 #----------------------------------------------- VIEWS SIMPLES ------------------------------------------------------------------------------
+
+
 
 
 
