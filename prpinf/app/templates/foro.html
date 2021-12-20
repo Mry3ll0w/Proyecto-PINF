@@ -4,7 +4,8 @@
     <title>Foro</title>
     <meta charset="UTF-8">
    <!----{% static 'style.css' %}------->
-    <link rel="stylesheet" href="../../static/style.css">    
+    <link rel="stylesheet" href="{% static 'style.css' %}">    
+    <link rel="stylesheet" href="{% static 'profile-card.css' %}"
      </head>
 <header>
   <div class="container">
@@ -24,7 +25,6 @@
       <i class="fas fa-home"></i>Home
       </a>
       </label> 
-
 
       <label class="test" for="test">
       <a href="http://127.0.0.1:8000/poll/"> 
@@ -57,17 +57,17 @@
   <div class="card"> 
     <form action="" method="post">{% csrf_token %}
     
-      <h4>Nombre de Usuario:</h4>
+      <h4>Nombre de Usuario:</h4><br>
       <h1>
           <input type="text" name="author">
       </h1>
-
-      <h4>Tema del foro: </h4>
+      <br>
+      <h4>Tema del foro: </h4><br>
       <h1> 
           <input type = "text" name="topic">
       </h1>
-
-      <h4>Contenido del post: </h4>
+      <br>
+      <h4>Contenido del post: </h4><br>
       <h1> 
           <input type = "text" name="content">
       </h1>
