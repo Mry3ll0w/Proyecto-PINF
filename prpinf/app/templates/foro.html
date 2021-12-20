@@ -61,14 +61,15 @@
       <h1>
           <input type="text" name="author">
       </h1>
-      <h4>Contenido del post: </h4>
-      <h1> 
-          <input type = "text" name="content">
-      </h1>
-    
+
       <h4>Tema del foro: </h4>
       <h1> 
           <input type = "text" name="topic">
+      </h1>
+
+      <h4>Contenido del post: </h4>
+      <h1> 
+          <input type = "text" name="content">
       </h1>
     
     <input type="submit">
@@ -83,13 +84,12 @@
   <div class="card"> 
     <div class="card-body">
       <h2 class="name">Autor del post: {{ i.author }} </h2>
-      <h4 class="job-title">correo: user@gmail.com</h4>
       <div class="bio"><A>Contenido:<br>{{i.content}}</A></div>
     </div>
     <br>
-    Fecha de creacion: {{i.post_date}}
+      Tema del foro: {{i.topic}}
     <br>
-    Topic del foro: {{i.topic}}
+      Fecha de creacion: {{i.post_date}}
     <br><br>
    
   </div>
