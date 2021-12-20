@@ -53,6 +53,7 @@
 </header>
 
 <body>
+  <center>
   <div class="card"> 
     <form action="" method="post">{% csrf_token %}
     
@@ -74,7 +75,7 @@
 
     </form>
   </div>
-
+  </center>
   <br><br><br><br>
 
   {% for i in db %} {% comment "db tiene que pasarse con el context " %}{% endcomment %}
