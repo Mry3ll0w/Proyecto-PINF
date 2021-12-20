@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <title>Foro</title>
     <meta charset="UTF-8">
-   <!----<title> Animated Image Gallery | CodingLab </title>------->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+   <!----{% static 'style.css' %}------->
+    <link rel="stylesheet" href="../../static/style.css">    
      </head>
 <header>
   <div class="container">
@@ -54,7 +53,45 @@
 </header>
 
 <body>
- 
+  <div class="card"> 
+    <form action="" method="post">{% csrf_token %}
+    
+      <h4>Nombre de Usuario:</h4>
+      <h1>
+          <input type="text" name="author">
+      </h1>
+      <h4>Contenido del post: </h4>
+      <h1> 
+          <input type = "text" name="content">
+      </h1>
+    
+      <h4>Tema del foro: </h4>
+      <h1> 
+          <input type = "text" name="topic">
+      </h1>
+    
+    <input type="submit">
+
+    </form>
+  </div>
+
+  <br><br><br><br>
+
+  {% for i in db %} {% comment "db tiene que pasarse con el context " %}{% endcomment %}
+
+  <div class="card"> 
+    <div class="card-body">
+      <h2 class="name">Autor del post: {{ i.author }} </h2>
+      <h4 class="job-title">correo: user@gmail.com</h4>
+      <div class="bio"><A>Contenido:<br>{{i.content}}</A></div>
+    </div>
+    Fecha de creacion: {{i.post_date}}
+    <br>
+    Topic del foro: {{i.topic}}
+    <br><br>
+    {% endfor %}
+  </div>
+
 
   <p class="separador">aaa</p>   
   

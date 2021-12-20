@@ -31,21 +31,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #EDD2F3;
+        background-color: #fff;
       }
     </style>
 
-    
+    <!--{% static 'singin.css' %}-->
     <link href="{% static 'singin.css' %}" rel="stylesheet">
   </head>
   <header>
     <div class="container">
-     <img src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="100%" height="100%" style="background-color: #EDD2F3;">
+     <img src="{% static 'Logo sin fondo.png' %}" alt="imagen" width="100%" height="100%" style="background-color: #fff;">
     </div>
     
 
   </header>
-  <body style="background-color: #EDD2F3;">   
+  <body style="background-color: #fff;">   
   
   <br><br>  <!--
 <br><br><br><br>
@@ -80,7 +80,7 @@
   </form>
 </main>-->
  <center>
-<div class="card">
+<div class="card"> 
 <form action="" method="post">{% csrf_token %}
   
 
