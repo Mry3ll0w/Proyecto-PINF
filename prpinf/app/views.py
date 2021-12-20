@@ -513,9 +513,14 @@ def foro(request):
 
     if request.user.is_authenticated:
     
-        if request.method == 'GET':
+        if request.method == 'POST':
+            #Catch de nuevo post
 
-        
+            input = request.POST #guarda el contenido
+            p = Post(author=request.user, content=input['content'], topic=input['topic'])
+            p.save()#Se guardan los datos y se redirige al home donde se ven los post
+
+            #Impresion del contenido del foro
             posts = sorted(Post.objects.all())#Catch de todas las querys de la DB
         
         
@@ -532,8 +537,12 @@ def foro(request):
                 for j in sorted(Post.objects.all().filter(topic=i)):
                 
                     final_list.append(j)
+            
+
         
-            return render(request,'foro_temp.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
+            return render(request,'foro.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
+        
+        return render (request, 'foro.html')
     
     else:
         #En caso de tener otro tipo de acceso que no sea el correspondiente se manda un 500 (forbidden operation)
