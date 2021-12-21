@@ -591,7 +591,24 @@ def perfil(request):
 
     if request.user.is_authenticated:
 
-        return render(request, 'perfil.html')
+        context = {'user':'', 'mail':'', 'primer_test':'', 'segundo_test': ''}
+
+        user = request.user.username
+
+        mail = request.user.email
+
+        cal = Calificaciones.objects.get(id_usuario = request.user.id)
+
+        primer_test = cal.t1_punct
+
+        aux = {'aux1': user, 'aux2': mail, 'aux3': primer_test}
+
+        context['user'] = aux['aux1']
+        context['mail'] = aux['aux2']
+        context['primer_test'] = aux['aux3']
+        #context['segundo_test'] = 
+
+        return render(request, 'perfil.html', context)
 
     else:
 
