@@ -145,7 +145,7 @@ svg .polygon{
 }
 .stat{
   box-sizing: border-box;
-  width: calc(100% / 2);
+  width: calc(100%);
   float: left;
   text-align: center;
   border-left: 1px solid #EBEBEB;

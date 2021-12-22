@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 {% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <title>Perfil</title>
-   <!----<title> Animated Image Gallery | CodingLab </title>------->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'profile-card.css' %}">
+    <link rel="stylesheet" href="../../static/style.css">    <!--{% static 'style.css' %}-->
+    <link rel="stylesheet" href="../../static/profile-card.css">  <!--{% static 'profile-card.css' %}-->
      </head>
 <header>
   <div class="container">
@@ -65,20 +63,13 @@
     <div class="card-body">
         <h2 class="name">{{user}}</h2>
         <h4 class="job-title">correo: {{mail}}</h4>
-        <div class="bio"><A>Aquí puedes comprobar tus puntuaciones:</A></div>
+        <div class="bio"><A>Aquí puedes comprobar tus resultados:</A></div>
     </div>
-
     <div class="card-footer">
-        <div class="stats">
             <div class="stat">
-              <span class="label">PRIMER TEST</span>
+              <span class="label">TEST GENERAL</span>
               <span class="value">{{primer_test}}</span>
             </div>
-            <div class="stat">
-              <span class="label">SEGUNDO TEST</span>
-              <span class="value">{{segundo_test}}</span>
-            </div>
-        </div>
     </div>
 </div>
 
