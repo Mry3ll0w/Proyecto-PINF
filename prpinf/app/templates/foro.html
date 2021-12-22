@@ -4,8 +4,8 @@
     <title>Foro</title>
     <meta charset="UTF-8">
    
-    <link rel="stylesheet" href="{% static 'style.css' %}">    
-    <link rel="stylesheet" href="{% static 'profile-card.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">     <!--{% static 'style.css' %}-->
+    <link rel="stylesheet" href="{% static 'profile-card.css' %}">    <!--{% static 'profile-card.css' %}-->
      </head>
 <header>
   <div class="container">
@@ -54,7 +54,7 @@
 
 <body>
   <center>
-  <div class="card"> 
+  <div class="card" style="height: 50%;"> 
     <form action="" method="post">{% csrf_token %}
     
       <h4>Tema del foro: </h4><br>
@@ -76,13 +76,13 @@
 
   {% for i in db %} {% comment "db tiene que pasarse con el context " %}{% endcomment %}
 
-  <div class="card"> 
+  <div class="card" style="height: 50%;"> 
     <div class="card-body">
       <h2 class="name">Autor del post: {{ i.author }} </h2>
-      <div class="bio"><A>Contenido:<br>{{i.content}}</A></div>
+      <div class="bio">Tema del foro: {{i.topic}}</div>
     </div>
     <br>
-      Tema del foro: {{i.topic}}
+       <div class="name" style="size: 50%;"><A>{{i.content}}</A></div>
     <br>
       Fecha de creacion: {{i.post_date}}
     <br><br>
