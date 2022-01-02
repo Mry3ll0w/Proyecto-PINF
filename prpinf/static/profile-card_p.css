@@ -10,7 +10,7 @@ body{
 .card{
   position: relative;
   width: 1000px; /* Remove for full width */
-  height: 1000px; /* Remove for full width */
+  height: 1100px; /* Remove for full width */
   margin:30px auto;
   box-shadow: 0 0 100px rgba(0,0,0, .3);
 }
