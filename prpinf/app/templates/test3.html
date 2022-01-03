@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test generico</title>
+    <link rel="stylesheet" href="../../static/style.css">
+    <link href="../../static/test-generico.css" rel="stylesheet">
+</head>
+<header>
+  <div class="container">
+    <input type="checkbox" style="display: none;" name="s" id="home" >
+
+    <input type="checkbox" style="display: none;" name="s" id="test" checked>
+    <input type="checkbox" style="display: none;" name="s" id="foro">
+    <input type="checkbox" style="display: none;" name="s" id="perfil">
+    <input type="checkbox" style="display: none;" name="s" id="sugerencias">
+    <nav>
+
+      <div class="slider"></div>
+    
+      
+      <label class="home" for="home">
+      <a href="http://127.0.0.1:8000/home">
+      <i class="fas fa-home"></i>Home
+      </a>
+      </label> 
+
+
+      <label class="test" for="test">
+      <a href="http://127.0.0.1:8000/poll/"> 
+      <i class="fas fa-blog"></i>Test
+      </a>
+      </label>
+
+      <label class="foro" for="foro">
+      <a href="http://127.0.0.1:8000/foro">
+      <i class="fas fa-code"></i>Foro
+      </a>
+      </label>
+      <label class="perfil" for="perfil">
+      <a href="http://127.0.0.1:8000/perfil">
+      <i class="fas fa-user"></i>Perfil
+      </a>
+      </label>
+      <label class="sugerencias" for="sugerencias">
+        <a href="http://127.0.0.1:8000/contenido_interes">
+      <i class="fas fa-help"></i>Sugerencias
+      </a>
+      </label>
+    
+    </nav>
+  </div>
+  </header>
+
+<body class = "text">
+    <br><br>
+    <h1 class="centrado">Introducción</h1><br>
+    <p class="centrado">La familia es un tema bastante delicado, no tod@s nacemos con unos buenos padres, por lo tanto, este test no está orientado a dar lecciones sobre como comportaros con vuestros familiares, sino para recalcar que la relación entre vosotros con vuestra familia es sumamente importante para el desarrollo de vuestra autoestima, sobre todo en edades menores, de hecho, gran parte de la baja autoestima en adolescentes y jóvenes deriva de no tener una familia decente. En definitiva, son preguntas para ayudaros a que os planteéis que cosas podaríais cambiar para estar más a gusto con vuestros padres, abuelos, etc...Y como consecuencia mejorar vuestro nivel de autoestima, ya que un entorno familiar propicio para desarrollarla es una base genial.
+        </p>
+    <br>
+    <br>
+      
+          <h2>1.  Mi familia es un valor muy importante para mi.</h2>
+
+            
+             <div>
+             <label><input type="radio"  style="display: inline-block;" name="poll1">Muy en desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll1">En desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll1">De acuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll1">Muy de acuerdo</label>
+              </div>
+
+          <br>
+          <br>
+          <h2>2. Mis familiares se preocupan por cómo me va y me escuchan.</h2>
+          <div>
+             <label><input type="radio" style="display: inline-block;" name="poll2">Muy en desacuerdo</label>
+             <br>
+              <label><input type="radio" style="display: inline-block;" name="poll2">En desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll2">De acuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll2">Muy de acuerdo</label>
+              <br>
+            </div>
+          <br>
+          <br>
+          <h2>3. Cuando me van mal las cosas pago mi mal humor con mi familia.</h2> 
+              
+          <div>
+            <label><input type="radio" style="display: inline-block;" name="poll3">Muy en desacuerdo</label>
+            <br>
+            <label><input type="radio" style="display: inline-block;" name="poll3">En desacuerdo</label>
+            <br>
+            <label><input type="radio" style="display: inline-block;" name="poll3">De acuerdo</label>
+            <br>
+            <label><input type="radio" style="display: inline-block;" name="poll3">Muy de acuerdo</label>
+          
+          </div>
+          <br>
+          <br>
+          <h2>4. Mi familia me felicita por mis logros y me motivan a seguir adelante cuando no cumplo mis objetivos.</h2> 
+          <div> 
+          <label><input type="radio" style="display: inline-block;" name="poll4">Muy en desacuerdo</label>
+          <br>
+           <label><input type="radio" style="display: inline-block;" name="poll4">En desacuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll4">De acuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll4">Muy de acuerdo</label>
+           <br>    
+          </div> 
+          <br>     
+          <br>
+          <h2>5. En las fechas importantes les hago regalos a mis familiares sin que me lo pidan.</h2> 
+                  
+          <div>  
+          <label><input type="radio" style="display: inline-block;" name="poll5">Muy en desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll5">En desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll5">De acuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll5">Muy de acuerdo</label>
+          </div>
+              
+          
+          <br>    
+          <br>
+          <h2>6. Cuando necesito ayuda, mi familia me la da sin dudar.</h2> 
+          <div>       
+          <label><input type="radio" style="display: inline-block;" name="poll6">Muy en desacuerdo</label>
+          <br>
+           <label><input type="radio" style="display: inline-block;" name="poll6">En desacuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll6">De acuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll6">Muy de acuerdo</label>
+           <br>
+          </div> 
+
+          <br>    
+          <br>
+          <h2>7. Si mis familiares me proponen planes que les hace mucha ilusión que vaya, hago el esfuerzo de ir.</h2> 
+                  
+          <div>   
+          <label><input type="radio" style="display: inline-block;" name="poll7">Muy en desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll7">En desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll7">De acuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll7">Muy de acuerdo</label>
+          </div>
+          
+          <br>    
+          <br>
+          <h2>8. Llamo a mi familia cuando paso tiempo sin verlos o intento visitarlos en persona.</h2> 
+          
+          <div>
+          <label><input type="radio" style="display: inline-block;" name="poll8">Muy en desacuerdo</label>
+          <br>
+           <label><input type="radio" style="display: inline-block;" name="poll8">En desacuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll8">De acuerdo</label>
+           <br>
+           <label><input type="radio" style="display: inline-block;" name="poll8">Muy de acuerdo</label>
+           <br>
+          </div>    
+          <br>
+          <br>
+          <h2>9.  Mi familia respeta mi forma de ser, intentan aconsejarme y ayudarme en base a lo que yo quiero, nó a lo que ell@s quieren.</h2> 
+                  
+          <div>  
+          <label><input type="radio" style="display: inline-block;" name="poll9">Muy en desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll9">En desacuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll9">De acuerdo</label>
+          <br>
+          <label><input type="radio" style="display: inline-block;" name="poll9">Muy de acuerdo</label>
+          </div> 
+             
+          
+          <br> 
+          <br>
+          <h2>10.Me suele costar mucho mostrar afecto a mi familia.</h2> 
+          <div>
+          <label><input type="radio" style="display: inline-block;" name="poll10">Muy en desacuerdo</label>
+             <br>
+              <label><input type="radio" style="display: inline-block;" name="poll10">En desacuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll10">De acuerdo</label>
+              <br>
+              <label><input type="radio" style="display: inline-block;" name="poll10">Muy de acuerdo</label>
+              <br>
+          </div>
+          <br> 
+          <br>    
+        <a href="http://127.0.0.1:8000/poll/test"><input type="submit"></a>
+  
+</body>
+  </html>
