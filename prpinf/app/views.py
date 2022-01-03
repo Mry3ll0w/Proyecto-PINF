@@ -665,6 +665,11 @@ def token(request):
 
         return redirect('http://127.0.0.1:8000/index/')
 
+def politicas(request):
+
+
+    return render(request, 'politicas.html')
+
 
 
 

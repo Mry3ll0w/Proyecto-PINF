@@ -21,6 +21,7 @@ urlpatterns = [
     path('pruebaad/', views.pruebaad),
     path('contenido_interes/', views.contenido_interes),
     path('poll/test2/', views.test2),
-    path('poll/test2_solucion',views.test2_sol)
+    path('poll/test2_solucion',views.test2_sol),
+    path('politicas/',views.politicas)
 
 ]
