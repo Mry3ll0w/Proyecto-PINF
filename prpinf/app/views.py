@@ -542,6 +542,26 @@ def foro(request):
         
             return render(request,'foro.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
         
+        elif request.method == 'GET':
+            posts = sorted(Post.objects.all())#Catch de todas las querys de la DB
+        
+        
+            #1) obtenemos todos los topics
+            topics = []
+            for i in posts:
+                if i.topic not in topics:
+                    topics.append(i.topic)
+        
+            final_list = []
+            #2) Creamos una lista de objetos ordenadas por fecha y agrupadas por topic
+            for i in topics: 
+
+                for j in sorted(Post.objects.all().filter(topic=i)):
+                
+                    final_list.append(j)
+            
+            return render(request,'foro.html',{'db':final_list,'tema':topics})
+
         return render (request, 'foro.html')
     
     else:
@@ -664,6 +684,11 @@ def token(request):
     else:
 
         return redirect('http://127.0.0.1:8000/index/')
+
+def politicas(request):
+
+
+    return render(request, 'politicas.html')
 
 
 

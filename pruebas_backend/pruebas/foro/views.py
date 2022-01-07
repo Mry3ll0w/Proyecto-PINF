@@ -6,31 +6,27 @@ from django.contrib.auth.models import User
 
 #Se encarga de mostrar el foro
 def foro(request):
-    if request.method == 'GET':
+   
+    #FIX
+    posts = sorted(Post.objects.all())#Catch de todas las querys de la DB
+        
+    #1) obtenemos todos los topics
+    topics = []
+    for i in posts:
+        if i.topic not in topics:
+            topics.append(i.topic)
+        
+    final_list = []
+    #2) Creamos una lista de objetos ordenadas por fecha y agrupadas por topic
+    for i in topics: 
 
-        
-        posts = sorted(Post.objects.all())#Catch de todas las querys de la DB
-        
-        
-        #1) obtenemos todos los topics
-        topics = []
-        for i in posts:
-            if i.topic not in topics:
-                topics.append(i.topic)
-        
-        final_list = []
-        #2) Creamos una lista de objetos ordenadas por fecha y agrupadas por topic
-        for i in topics: 
-
-            for j in sorted(Post.objects.all().filter(topic=i)):
+        for j in sorted(Post.objects.all().filter(topic=i)):
                 
-                final_list.append(j)
+            final_list.append(j)
         
-        return render(request,'foro.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
+    return render(request,'foro.html',{'db':final_list,'tema':topics})#le pasamos la base de datos en el context para que la muestre
     
-    else:
-        #En caso de tener otro tipo de acceso que no sea el correspondiente se manda un 500 (forbidden operation)
-        return HttpResponse(status=403)
+   
 
 
 #Crea un post para meterlo en la DB
