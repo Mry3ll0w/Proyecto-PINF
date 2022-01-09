@@ -585,6 +585,16 @@ def test2_sol(request):
     else:
         redirect('http://127.0.0.1:8000/index/')#Si no hay user logeado pal home     
 
+        
+#/poll/test3
+def test3(request):
+    
+    if request.user.is_authenticated:
+        return render(request, 'test3.html')
+    else:
+        redirect('http://127.0.0.1:8000/index/')#Si no hay user logeado pal home     
+
+
 
 #----------------------------------------------- VIEWS SIMPLES ------------------------------------------------------------------------------
 
